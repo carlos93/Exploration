@@ -43,8 +43,8 @@ void APokemon::Initialize(const int32 entry)
     FString entryStr = FString::FromInt(entry);
     FString entryFixed = FString(std::format("{:0>4}", entry).c_str());
     FString folderStr = "/Game/Models/pm" + entryFixed + "/";
-
     FString skeletalMeshPath = folderStr + "pm" + entryFixed;
+
     USkeletalMesh* skeletalMesh = LoadObject<USkeletalMesh>(nullptr, *skeletalMeshPath);
     GetMesh()->SetSkeletalMesh(skeletalMesh);
 
