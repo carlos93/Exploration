@@ -70,3 +70,15 @@ FString UPokemonUtils::GetPathForPokemonAnimation(const EPokemonSpecies entry, c
     return FString(path.c_str());
 }
 
+FString UPokemonUtils::FirstLetterToUppercase(FString name)
+{
+    if (name.Len() > 0)
+    {
+        auto firstLetter = name.LeftChop(name.Len() - 1U);
+        firstLetter = firstLetter.ToUpper();
+        name = firstLetter.Append(name.RightChop(1));
+    }
+
+    return name;
+}
+

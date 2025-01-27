@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "PokemonUtils.generated.h"
+
 enum class EPokemonSpecies : int32
 {
     Missigno = 0,
@@ -553,14 +555,251 @@ enum class EPokemonMoveType : uint8
 };
 ENUM_CLASS_FLAGS(EPokemonMoveType);
 
-class UPokemonUtils
+UENUM(BlueprintType)
+enum class EPokemonType : uint8
 {
+    None = 0U,
+    Normal = 1U,
+    Fighting = 2U,
+    Flying = 3U,
+    Poison = 4U,
+    Ground = 5U,
+    Rock = 6U,
+    Bug = 7U,
+    Ghost = 8U,
+    Steel = 9U,
+    Fire = 10U,
+    Water = 11U,
+    Grass = 12U,
+    Electric = 13U,
+    Psychic = 14U,
+    Ice = 15U,
+    Dragon = 16U,
+    Dark = 17U,
+    Fairy = 18U,
+    Stellar = 19U,
+};
+
+UENUM(BlueprintType)
+enum class EPokemonStatType : uint8
+{
+    None = 0U,
+    HP = 1U,
+    Attack = 2U,
+    Defense = 3U,
+    SpAttack = 4U,
+    SpDefense = 5U,
+    Speed = 6U,
+    Accuracy = 7U,
+    Evasion = 8U,
+    CritRating = 9U
+};
+
+UENUM(BlueprintType)
+enum class EPokemonMoveAilment : uint8
+{
+    None = 0U,
+    Paralysis,
+    Sleep,
+    Freeze,
+    Burn,
+    Poison,
+    Confusion,
+    Infatuation,
+    Trap,
+    Nightmare,
+    Torment = 12U,
+    Disable,
+    Yawn,
+    HealBlock,
+    NoTypeImmunity = 17U,
+    LeechSeed,
+    Embargo,
+    PerishSong,
+    Ingrain,
+    Silence = 24,
+    BadPoison,
+    AllPrimary,
+    AllSecondary,
+    All
+};
+
+UENUM(BlueprintType)
+enum class EPokemonMoveCategory : uint8
+{
+    Damage = 0U,
+    Ailment,
+    StatsModifier,
+    Heal,
+    DamageAndAilment,
+    Swagger,
+    DamageAndLower,
+    DamageAndRaise,
+    DamageAndHeal,
+    OHKO,
+    WholeFieldEffect,
+    FieldEffect,
+    ForceSwitch,
+    Unique
+};
+
+UENUM(BlueprintType)
+enum class EPokemonMoveTarget : uint8
+{
+    None = 0U,
+    SpecificMove,
+    SelectedPokemonMeFirst,
+    Ally,
+    UsersField,
+    UserOrAlly,
+    OpponentsField,
+    User,
+    RandomOpponent,
+    AllOtherPokemons,
+    SelectedPokemon,
+    AllOpponents,
+    EntireField,
+    UserAndAllies,
+    AllPokemon,
+    AllAllies
+};
+
+UENUM(BlueprintType)
+enum class EPokemonMoveDamageClass : uint8
+{
+    None = 0U,
+    Status = 1U,
+    Physical = 2U,
+    Special = 3U,
+};
+
+UENUM(BlueprintType)
+enum class EPokemonMoveLearnMethod : uint8
+{
+    None = 0U,
+    LevelUp = 1U,
+    Egg = 2U,
+    Tutor = 3U,
+    Machine = 4U
+};
+
+UENUM(BlueprintType)
+enum class EItemFlingEffect : uint8
+{
+    None = 0U,
+    BadlyPoison,
+    Burn,
+    BerryEffect,
+    HerbEffect,
+    Paralyze,
+    Poision,
+    Flinch
+};
+
+UENUM(BlueprintType)
+enum class EItemAttribute : uint8
+{
+    None = 0U,
+    Countable,
+    Consumable,
+    UsableOverworld,
+    UsableInBattle,
+    Holdable,
+    HoldablePassive,
+    HoldableActive,
+    Underground
+};
+
+UENUM(BlueprintType)
+enum class EItemPocket : uint8
+{
+    None = 0U,
+    Misc,
+    Medicine,
+    Pokeballs,
+    Machines,
+    Berries,
+    Mail,
+    Battle,
+    Key
+};
+
+UENUM(BlueprintType)
+enum class EItemCategory : uint8
+{
+    None = 0U,
+    StatBoosts,
+    EffortDrop,
+    Medicine,
+    BerryOther,
+    BerryInAPinch,
+    BerryPickyHealing,
+    BerryTypeProtection,
+    BerryBakingOnly,
+    Collectibles,
+    Evolution,
+    Repels,
+    HeldItems,
+    Choiced,
+    EffortTraining,
+    BadHeldItems,
+    Training,
+    Plates,
+    SpeciesSpecific,
+    TypeEnhancement,
+    EventItems,
+    Gameplay,
+    PlotAdvancement,
+    Unused,
+    Loot,
+    Mail,
+    Vitamins,
+    Healing,
+    PpRecovery,
+    Revival,
+    StatusCures,
+    Unused2,
+    Mulch,
+    SpecialBalls,
+    StandardBalls,
+    DexCompletion,
+    Scarves,
+    TMS,
+    Flutes,
+    ApricornBalls,
+    ApricornBox,
+    DataCards,
+    Jewels,
+    MiracleShooter,
+    MegaStones,
+    Memories,
+    ZCrystals,
+    SpeciesCandies,
+    CatchingBonus,
+    DynamaxCrystals,
+    NatureMints,
+    CurryIngredients,
+    TeraShard,
+    SandwichIngredients,
+    TmMaterials,
+    Picnic
+};
+
+UCLASS()
+class UPokemonUtils : public UObject
+{
+    GENERATED_BODY()
+
 public:
     static void InitDatabase();
 
     static TMap<EPokemonAnimations, FString> AnimationPathNames;
 
     static FString GetPathForPokemonAnimation(const EPokemonSpecies entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier);
+
+    UFUNCTION(BlueprintPure)
+    static FString FirstLetterToUppercase(const FString name);
+
 private:
     static bool isDatabaseLoaded;
 };
