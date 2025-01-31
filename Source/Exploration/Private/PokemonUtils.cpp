@@ -34,6 +34,7 @@ void UPokemonUtils::InitDatabase()
     AnimationPathNames.Add(EPokemonAnimations::SleepLoop, "sleep01_loop");
     AnimationPathNames.Add(EPokemonAnimations::SleepEnd, "sleep01_end");
     AnimationPathNames.Add(EPokemonAnimations::Roar, "roar01");
+    AnimationPathNames.Add(EPokemonAnimations::WildShot, "wildshot02");
     AnimationPathNames.Add(EPokemonAnimations::Attack1, "attack01");
     AnimationPathNames.Add(EPokemonAnimations::Attack2, "attack02");
     AnimationPathNames.Add(EPokemonAnimations::RangeAttack1, "rangeattack01");

@@ -522,6 +522,7 @@ enum class EPokemonAnimations
     SleepLoop = 281,
     SleepEnd = 282,
     Roar = 300,
+    WildShot = 340,
     Attack1 = 400,
     Attack2 = 410,
     RangeAttack1 = 450,

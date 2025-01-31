@@ -10,6 +10,41 @@
 
 #define LOAD_ANIM(animationsStruct, animationName, animTier) (animationsStruct.animationName = loadAnimation (EPokemonAnimations::animationName, animTier))
 
+#define LOAD_ANIMS(animationStruct, tier) \
+    LOAD_ANIM(animationStruct, DefaultWait, tier); \
+    LOAD_ANIM(animationStruct, BattleWait, tier); \
+    LOAD_ANIM(animationStruct, DefaultIdle1, tier); \
+    LOAD_ANIM(animationStruct, DefaultIdle2, tier); \
+    LOAD_ANIM(animationStruct, TurnLeft, tier); \
+    LOAD_ANIM(animationStruct, TurnRight, tier); \
+    LOAD_ANIM(animationStruct, Walk, tier); \
+    LOAD_ANIM(animationStruct, Run, tier); \
+    LOAD_ANIM(animationStruct, WildBoolStart, tier); \
+    LOAD_ANIM(animationStruct, WildBoolLoop, tier); \
+    LOAD_ANIM(animationStruct, WildBoolEnd, tier); \
+    LOAD_ANIM(animationStruct, RestStart, tier); \
+    LOAD_ANIM(animationStruct, RestLoop, tier); \
+    LOAD_ANIM(animationStruct, RestEnd, tier); \
+    LOAD_ANIM(animationStruct, SleepStart, tier); \
+    LOAD_ANIM(animationStruct, SleepLoop, tier); \
+    LOAD_ANIM(animationStruct, SleepEnd, tier); \
+    LOAD_ANIM(animationStruct, Roar, tier); \
+    LOAD_ANIM(animationStruct, WildShot, tier); \
+    LOAD_ANIM(animationStruct, Attack1, tier); \
+    LOAD_ANIM(animationStruct, Attack2, tier); \
+    LOAD_ANIM(animationStruct, RangeAttack1, tier); \
+    LOAD_ANIM(animationStruct, RangeAttack2Start, tier); \
+    LOAD_ANIM(animationStruct, RangeAttack2Loop, tier); \
+    LOAD_ANIM(animationStruct, RangeAttack2End, tier); \
+    LOAD_ANIM(animationStruct, Damage1, tier); \
+    LOAD_ANIM(animationStruct, Damage2, tier); \
+    LOAD_ANIM(animationStruct, Glad, tier); \
+    LOAD_ANIM(animationStruct, Notice, tier); \
+    LOAD_ANIM(animationStruct, Hate, tier); \
+    LOAD_ANIM(animationStruct, UniqueWaitStart, tier); \
+    LOAD_ANIM(animationStruct, UniqueWaitLoop, tier); \
+    LOAD_ANIM(animationStruct, UniqueWaitEnd, tier)
+
 // Sets default values
 APokemon::APokemon() : _entry{0}, _crySound(nullptr), _speed{}, _isRunning{false}, _isSleeping{false}, _pokemonAnimations{}, _pokemonAnimationsSwim{}, _pokemonAnimationsFly{}, _currentMoveTypes{EPokemonMoveType::Walk}, _allowedMoveTypes{static_cast<int32>(EPokemonMoveType::Walk |EPokemonMoveType::Swim)}, _showDebug{false}
 {
@@ -92,112 +127,19 @@ void APokemon::InitializeAnimations(const int32 entry, const FString folderStr)
     auto animTier = EPokemonAnimTier::Normal;
     if (CanWalk())
     {
-        LOAD_ANIM(_pokemonAnimations, DefaultWait, animTier);
-        LOAD_ANIM(_pokemonAnimations, BattleWait, animTier);
-        LOAD_ANIM(_pokemonAnimations, DefaultIdle1, animTier);
-        LOAD_ANIM(_pokemonAnimations, DefaultIdle2, animTier);
-        LOAD_ANIM(_pokemonAnimations, TurnLeft, animTier);
-        LOAD_ANIM(_pokemonAnimations, TurnRight, animTier);
-        LOAD_ANIM(_pokemonAnimations, Walk, animTier);
-        LOAD_ANIM(_pokemonAnimations, Run, animTier);
-        LOAD_ANIM(_pokemonAnimations, WildBoolStart, animTier);
-        LOAD_ANIM(_pokemonAnimations, WildBoolLoop, animTier);
-        LOAD_ANIM(_pokemonAnimations, WildBoolEnd, animTier);
-        LOAD_ANIM(_pokemonAnimations, RestStart, animTier);
-        LOAD_ANIM(_pokemonAnimations, RestLoop, animTier);
-        LOAD_ANIM(_pokemonAnimations, RestEnd, animTier);
-        LOAD_ANIM(_pokemonAnimations, SleepStart, animTier);
-        LOAD_ANIM(_pokemonAnimations, SleepLoop, animTier);
-        LOAD_ANIM(_pokemonAnimations, SleepEnd, animTier);
-        LOAD_ANIM(_pokemonAnimations, Roar, animTier);
-        LOAD_ANIM(_pokemonAnimations, Attack1, animTier);
-        LOAD_ANIM(_pokemonAnimations, Attack2, animTier);
-        LOAD_ANIM(_pokemonAnimations, RangeAttack1, animTier);
-        LOAD_ANIM(_pokemonAnimations, RangeAttack2Start, animTier);
-        LOAD_ANIM(_pokemonAnimations, RangeAttack2Loop, animTier);
-        LOAD_ANIM(_pokemonAnimations, RangeAttack2End, animTier);
-        LOAD_ANIM(_pokemonAnimations, Damage1, animTier);
-        LOAD_ANIM(_pokemonAnimations, Damage2, animTier);
-        LOAD_ANIM(_pokemonAnimations, Glad, animTier);
-        LOAD_ANIM(_pokemonAnimations, Notice, animTier);
-        LOAD_ANIM(_pokemonAnimations, Hate, animTier);
-        LOAD_ANIM(_pokemonAnimations, UniqueWaitStart, animTier);
-        LOAD_ANIM(_pokemonAnimations, UniqueWaitLoop, animTier);
-        LOAD_ANIM(_pokemonAnimations, UniqueWaitEnd, animTier);
+        LOAD_ANIMS(_pokemonAnimations, animTier);
     }
 
     animTier = EPokemonAnimTier::Swimming;
     if (CanSwim())
     {
-        LOAD_ANIM(_pokemonAnimationsSwim, DefaultWait, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, BattleWait, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, DefaultIdle1, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, DefaultIdle2, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, TurnLeft, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, TurnRight, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Walk, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Run, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, WildBoolStart, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, WildBoolLoop, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, WildBoolEnd, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, RestStart, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, RestLoop, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, RestEnd, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, SleepStart, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, SleepLoop, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, SleepEnd, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Roar, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Attack1, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Attack2, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, RangeAttack1, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, RangeAttack2Start, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, RangeAttack2Loop, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, RangeAttack2End, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Damage1, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Damage2, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Glad, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Notice, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, Hate, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, UniqueWaitStart, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, UniqueWaitLoop, animTier);
-        LOAD_ANIM(_pokemonAnimationsSwim, UniqueWaitEnd, animTier);
+        LOAD_ANIMS(_pokemonAnimationsSwim, animTier);
     }
 
     animTier = EPokemonAnimTier::Flying;
     if (CanFly())
     {
-        LOAD_ANIM(_pokemonAnimationsFly, DefaultWait, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, BattleWait, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, DefaultIdle1, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, DefaultIdle2, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, TurnLeft, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, TurnRight, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Walk, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Run, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, WildBoolStart, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, WildBoolLoop, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, WildBoolEnd, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, RestStart, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, RestLoop, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, RestEnd, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, SleepStart, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, SleepLoop, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, SleepEnd, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Roar, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Attack1, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Attack2, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, RangeAttack1, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, RangeAttack2Start, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, RangeAttack2Loop, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, RangeAttack2End, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Damage1, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Damage2, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Glad, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Notice, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, Hate, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, UniqueWaitStart, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, UniqueWaitLoop, animTier);
-        LOAD_ANIM(_pokemonAnimationsFly, UniqueWaitEnd, animTier);
+        LOAD_ANIMS(_pokemonAnimationsFly, animTier);
     }
 }
 

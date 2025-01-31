@@ -68,6 +68,9 @@ struct EXPLORATION_API FPokemonAnimations
 	UAnimSequence* Roar;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* WildShot;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
 	UAnimSequence* Attack1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
