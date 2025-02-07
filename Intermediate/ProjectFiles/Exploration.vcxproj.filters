@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Exploration.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Exploration.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\ExplorationEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Exploration">
+      <UniqueIdentifier>{94A1D0C1-5657-3A5A-9815-7671CFEA4C0F}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Exploration\Exploration.Build.cs">
+      <Filter>Source\Exploration</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Exploration\Exploration.cpp">
+      <Filter>Source\Exploration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Exploration\Exploration.h">
+      <Filter>Source\Exploration</Filter>
+    </ClCompile>
+    <Filter Include="Source\Exploration\Private">
+      <UniqueIdentifier>{C7B26820-BE6D-3F40-AEDA-61C93AD7A93B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Exploration\Private\Pokemon.cpp">
+      <Filter>Source\Exploration\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Exploration\Private\DayNightSubsystem.cpp">
+      <Filter>Source\Exploration\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\Exploration\Public">
+      <UniqueIdentifier>{C8A49F26-1F9B-35D4-8F2E-DBB7BA8DBEC9}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Exploration\Public\Pokemon.h">
+      <Filter>Source\Exploration\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Exploration\Public\DayNightSubsystem.h">
+      <Filter>Source\Exploration\Public</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
