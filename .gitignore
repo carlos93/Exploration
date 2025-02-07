@@ -1,6 +1,6 @@
 Binaries
 DerivedDataCache
-Intermediate
+Intermediate/Build
 Saved
 .vscode
 .vsconfig
@@ -16,3 +16,11 @@ Saved
 Build
 Content/BlackAlder
 BuildShipping/
+Intermediate/CachedAssetRegistry_0.bin
+Intermediate/Config/
+Intermediate/PipInstall/
+Intermediate/PythonStub/
+Intermediate/ReimportCache/
+Intermediate/ShaderAutogen/
+Intermediate/Staging/
+Intermediate/TargetInfo.json
