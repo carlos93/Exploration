@@ -8,6 +8,75 @@
 #include "PokemonUtils.h"
 #include "Pokemon.generated.h"
 
+struct EXPLORATION_API FPokemonAnimationsSoftPtr
+{
+	TSoftObjectPtr<UAnimSequence> DefaultWait;
+
+	TSoftObjectPtr<UAnimSequence> BattleWait;
+
+	TSoftObjectPtr<UAnimSequence> DefaultIdle1;
+
+	TSoftObjectPtr<UAnimSequence> DefaultIdle2;
+
+	TSoftObjectPtr<UAnimSequence> Walk;
+
+	TSoftObjectPtr<UAnimSequence> Run;
+
+	TSoftObjectPtr<UAnimSequence> WildBoolStart;
+
+	TSoftObjectPtr<UAnimSequence> WildBoolLoop;
+
+	TSoftObjectPtr<UAnimSequence> WildBoolEnd;
+
+	TSoftObjectPtr<UAnimSequence> TurnLeft;
+
+	TSoftObjectPtr<UAnimSequence> TurnRight;
+
+	TSoftObjectPtr<UAnimSequence> RestStart;
+
+	TSoftObjectPtr<UAnimSequence> RestLoop;
+
+	TSoftObjectPtr<UAnimSequence> RestEnd;
+
+	TSoftObjectPtr<UAnimSequence> SleepStart;
+
+	TSoftObjectPtr<UAnimSequence> SleepLoop;
+
+	TSoftObjectPtr<UAnimSequence> SleepEnd;
+
+	TSoftObjectPtr<UAnimSequence> Roar;
+
+	TSoftObjectPtr<UAnimSequence> WildShot;
+
+	TSoftObjectPtr<UAnimSequence> Attack1;
+
+	TSoftObjectPtr<UAnimSequence> Attack2;
+
+	TSoftObjectPtr<UAnimSequence> RangeAttack1;
+
+	TSoftObjectPtr<UAnimSequence> RangeAttack2Start;
+
+	TSoftObjectPtr<UAnimSequence> RangeAttack2Loop;
+
+	TSoftObjectPtr<UAnimSequence> RangeAttack2End;
+
+	TSoftObjectPtr<UAnimSequence> Damage1;
+
+	TSoftObjectPtr<UAnimSequence> Damage2;
+
+	TSoftObjectPtr<UAnimSequence> Glad;
+
+	TSoftObjectPtr<UAnimSequence> Notice;
+
+	TSoftObjectPtr<UAnimSequence> Hate;
+
+	TSoftObjectPtr<UAnimSequence> UniqueWaitStart;
+
+	TSoftObjectPtr<UAnimSequence> UniqueWaitLoop;
+
+	TSoftObjectPtr<UAnimSequence> UniqueWaitEnd;
+};
+
 USTRUCT(BlueprintType)
 struct EXPLORATION_API FPokemonAnimations
 {
@@ -134,6 +203,10 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Pokemon")
 	void OnInitialize();
 
+	void OnWalkingAnimationsLoaded();
+	void OnSwimmingAnimationsLoaded();
+	void OnFlyingAnimationsLoaded();
+
 	// ---------------
 	// Functions
 	// ---------------
@@ -173,12 +246,15 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pokemon")
 	FPokemonAnimations _pokemonAnimations;
+	FPokemonAnimationsSoftPtr walkingAnimationsStruct;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pokemon")
 	FPokemonAnimations _pokemonAnimationsSwim;
+	FPokemonAnimationsSoftPtr swimmingAnimationsStruct;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pokemon")
 	FPokemonAnimations _pokemonAnimationsFly;
+	FPokemonAnimationsSoftPtr flyingAnimationsStruct;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pokemon")
 	EPokemonMoveType _currentMoveTypes;
@@ -188,4 +264,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pokemon")
 	bool _showDebug;
+
+	bool _areWalkingAnimationsLoaded;
+	bool _areSwimmingAnimationsLoaded;
+	bool _areFlyingAnimationsLoaded;
 };

@@ -5,48 +5,89 @@
 #include "PokemonUtils.h"
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimNode_StateMachine.h"
+#include "Engine/AssetManager.h"
 #include <format>
 #include <string>
 
 #define LOAD_ANIM(animationsStruct, animationName, animTier) (animationsStruct.animationName = loadAnimation (EPokemonAnimations::animationName, animTier))
 
-#define LOAD_ANIMS(animationStruct, tier) \
-    LOAD_ANIM(animationStruct, DefaultWait, tier); \
-    LOAD_ANIM(animationStruct, BattleWait, tier); \
-    LOAD_ANIM(animationStruct, DefaultIdle1, tier); \
-    LOAD_ANIM(animationStruct, DefaultIdle2, tier); \
-    LOAD_ANIM(animationStruct, TurnLeft, tier); \
-    LOAD_ANIM(animationStruct, TurnRight, tier); \
-    LOAD_ANIM(animationStruct, Walk, tier); \
-    LOAD_ANIM(animationStruct, Run, tier); \
-    LOAD_ANIM(animationStruct, WildBoolStart, tier); \
-    LOAD_ANIM(animationStruct, WildBoolLoop, tier); \
-    LOAD_ANIM(animationStruct, WildBoolEnd, tier); \
-    LOAD_ANIM(animationStruct, RestStart, tier); \
-    LOAD_ANIM(animationStruct, RestLoop, tier); \
-    LOAD_ANIM(animationStruct, RestEnd, tier); \
-    LOAD_ANIM(animationStruct, SleepStart, tier); \
-    LOAD_ANIM(animationStruct, SleepLoop, tier); \
-    LOAD_ANIM(animationStruct, SleepEnd, tier); \
-    LOAD_ANIM(animationStruct, Roar, tier); \
-    LOAD_ANIM(animationStruct, WildShot, tier); \
-    LOAD_ANIM(animationStruct, Attack1, tier); \
-    LOAD_ANIM(animationStruct, Attack2, tier); \
-    LOAD_ANIM(animationStruct, RangeAttack1, tier); \
-    LOAD_ANIM(animationStruct, RangeAttack2Start, tier); \
-    LOAD_ANIM(animationStruct, RangeAttack2Loop, tier); \
-    LOAD_ANIM(animationStruct, RangeAttack2End, tier); \
-    LOAD_ANIM(animationStruct, Damage1, tier); \
-    LOAD_ANIM(animationStruct, Damage2, tier); \
-    LOAD_ANIM(animationStruct, Glad, tier); \
-    LOAD_ANIM(animationStruct, Notice, tier); \
-    LOAD_ANIM(animationStruct, Hate, tier); \
-    LOAD_ANIM(animationStruct, UniqueWaitStart, tier); \
-    LOAD_ANIM(animationStruct, UniqueWaitLoop, tier); \
-    LOAD_ANIM(animationStruct, UniqueWaitEnd, tier)
+
+#define CREATE_SOFT_POINTER_ANIM(member, animId, tier, container) \
+    member.animId = createPtr(EPokemonAnimations::animId, tier); \
+    container.AddUnique(member.animId.ToSoftObjectPath());
+
+#define FILL_CONTAINER_ANIMS(member, tier, container) \
+    CREATE_SOFT_POINTER_ANIM(member, DefaultWait, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, BattleWait, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, DefaultIdle1, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, DefaultIdle2, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, TurnLeft, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, TurnRight, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Walk, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Run, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, WildBoolStart, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, WildBoolLoop, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, WildBoolEnd, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, RestStart, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, RestLoop, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, RestEnd, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, SleepStart, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, SleepLoop, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, SleepEnd, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Roar, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, WildShot, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Attack1, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Attack2, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, RangeAttack1, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, RangeAttack2Start, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, RangeAttack2Loop, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, RangeAttack2End, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Damage1, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Damage2, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Glad, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Notice, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Hate, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, UniqueWaitStart, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, UniqueWaitLoop, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, UniqueWaitEnd, tier, container)
+
+#define LOAD_ANIMS(member, container) \
+    member.DefaultWait = container.DefaultWait.LoadSynchronous(); \
+    member.BattleWait = container.BattleWait.LoadSynchronous(); \
+    member.DefaultIdle1= container.DefaultIdle1.LoadSynchronous(); \
+    member.DefaultIdle2= container.DefaultIdle2.LoadSynchronous(); \
+    member.TurnLeft= container.TurnLeft.LoadSynchronous(); \
+    member.TurnRight= container.TurnRight.LoadSynchronous(); \
+    member.Walk= container.Walk.LoadSynchronous(); \
+    member.Run= container.Run.LoadSynchronous(); \
+    member.WildBoolStart= container.WildBoolStart.LoadSynchronous(); \
+    member.WildBoolLoop= container.WildBoolLoop.LoadSynchronous(); \
+    member.WildBoolEnd= container.WildBoolEnd.LoadSynchronous(); \
+    member.RestStart= container.RestStart.LoadSynchronous(); \
+    member.RestLoop= container.RestLoop.LoadSynchronous(); \
+    member.RestEnd= container.RestEnd.LoadSynchronous(); \
+    member.SleepStart= container.SleepStart.LoadSynchronous(); \
+    member.SleepLoop= container.SleepLoop.LoadSynchronous(); \
+    member.SleepEnd= container.SleepEnd.LoadSynchronous(); \
+    member.Roar= container.Roar.LoadSynchronous(); \
+    member.WildShot= container.WildShot.LoadSynchronous(); \
+    member.Attack1= container.Attack1.LoadSynchronous(); \
+    member.Attack2= container.Attack2.LoadSynchronous(); \
+    member.RangeAttack1= container.RangeAttack1.LoadSynchronous(); \
+    member.RangeAttack2Start= container.RangeAttack2Start.LoadSynchronous(); \
+    member.RangeAttack2Loop= container.RangeAttack2Loop.LoadSynchronous(); \
+    member.RangeAttack2End= container.RangeAttack2End.LoadSynchronous(); \
+    member.Damage1= container.Damage1.LoadSynchronous(); \
+    member.Damage2= container.Damage2.LoadSynchronous(); \
+    member.Glad= container.Glad.LoadSynchronous(); \
+    member.Notice= container.Notice.LoadSynchronous(); \
+    member.Hate= container.Hate.LoadSynchronous(); \
+    member.UniqueWaitStart= container.UniqueWaitStart.LoadSynchronous(); \
+    member.UniqueWaitLoop= container.UniqueWaitLoop.LoadSynchronous(); \
+    member.UniqueWaitEnd = container.UniqueWaitEnd.LoadSynchronous()
 
 // Sets default values
-APokemon::APokemon() : _entry{0}, _crySound(nullptr), _speed{}, _isRunning{false}, _isSleeping{false}, _pokemonAnimations{}, _pokemonAnimationsSwim{}, _pokemonAnimationsFly{}, _currentMoveTypes{EPokemonMoveType::Walk}, _allowedMoveTypes{static_cast<int32>(EPokemonMoveType::Walk |EPokemonMoveType::Swim)}, _showDebug{false}
+APokemon::APokemon() : _entry{0}, _crySound(nullptr), _speed{}, _isRunning{false}, _isSleeping{false}, _pokemonAnimations{}, _pokemonAnimationsSwim{}, _pokemonAnimationsFly{}, _currentMoveTypes{EPokemonMoveType::Walk}, _allowedMoveTypes{static_cast<int32>(EPokemonMoveType::Walk |EPokemonMoveType::Swim)}, _showDebug{false}, _areWalkingAnimationsLoaded{false}, _areSwimmingAnimationsLoaded{false}, _areFlyingAnimationsLoaded{false}
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -75,11 +116,10 @@ void APokemon::Initialize(const int32 entry)
 {
     UPokemonUtils::InitDatabase();
 
-    FString entryStr = FString::FromInt(entry);
     FString entryFixed = FString(std::format("{:0>4}", entry).c_str());
     FString folderStr = "/Game/Models/pm" + entryFixed + "/";
-    FString skeletalMeshPath = folderStr + "pm" + entryFixed;
 
+    FString skeletalMeshPath = folderStr + "pm" + entryFixed;
     USkeletalMesh* skeletalMesh = LoadObject<USkeletalMesh>(nullptr, *skeletalMeshPath);
     GetMesh()->SetSkeletalMesh(skeletalMesh);
 
@@ -95,51 +135,128 @@ void APokemon::Initialize(const int32 entry)
         }
     }
 
-    InitializeAnimations(entry, folderStr);
 
-    FString cryPath = "/Game/Sounds/Cries/" + entryStr;
-    _crySound = LoadObject<USoundBase>(nullptr, *cryPath);
+    auto createPtr = [&](const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
+    {
+        FSoftObjectPath animationPath = folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, pokemonAnimation, pokemonAnimTier);
+        TSoftObjectPtr<UAnimSequence> animationPtr(animationPath);
+        return animationPtr;
+    };
 
-    OnInitialize();
+    FStreamableManager& Streamable = UAssetManager::GetStreamableManager();
+    //_pokemonAnimations.Attack1 = TSoftObjectPtr<UAnimSequence>(FSoftObjectPath(folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, EPokemonAnimations::Attack1, EPokemonAnimTier::Normal)));
+
+
+    TArray<FSoftObjectPath> walkingAnimations;
+    FPokemonAnimationsSoftPtr animationsStruct;
+    auto animTier = EPokemonAnimTier::Normal;
+    if (CanWalk())
+    {
+        FILL_CONTAINER_ANIMS(walkingAnimationsStruct, animTier, walkingAnimations);
+        Streamable.RequestAsyncLoad(walkingAnimations, FStreamableDelegate::CreateUObject(this, &APokemon::OnWalkingAnimationsLoaded));
+    }
+    else
+    {
+        _areWalkingAnimationsLoaded = true;
+    }
+
+    animTier = EPokemonAnimTier::Swimming;
+    TArray<FSoftObjectPath> swimmingAnimations;
+    if (CanSwim())
+    {
+        FILL_CONTAINER_ANIMS(swimmingAnimationsStruct, animTier, swimmingAnimations);
+        Streamable.RequestAsyncLoad(swimmingAnimations, FStreamableDelegate::CreateUObject(this, &APokemon::OnSwimmingAnimationsLoaded));
+    }
+    else
+    {
+        _areSwimmingAnimationsLoaded = true;
+    }
+
+    animTier = EPokemonAnimTier::Flying;
+    TArray<FSoftObjectPath> flyingAnimations;
+    if (CanFly())
+    {
+        FILL_CONTAINER_ANIMS(flyingAnimationsStruct, animTier, flyingAnimations);
+        Streamable.RequestAsyncLoad(flyingAnimations, FStreamableDelegate::CreateUObject(this, &APokemon::OnFlyingAnimationsLoaded));
+    }
+    else
+    {
+        _areFlyingAnimationsLoaded = true;
+    }
+}
+
+void APokemon::OnWalkingAnimationsLoaded()
+{
+    FString errorText = L"AnimationLoaded";
+
+    _areWalkingAnimationsLoaded = true;
+
+    LOAD_ANIMS(_pokemonAnimations, walkingAnimationsStruct);
+
+    if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
+        OnInitialize();
+}
+
+void APokemon::OnSwimmingAnimationsLoaded()
+{
+    FString errorText = L"AnimationLoaded";
+
+    _areSwimmingAnimationsLoaded = true;
+
+    LOAD_ANIMS(_pokemonAnimationsSwim, swimmingAnimationsStruct);
+
+    if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
+        OnInitialize();
+}
+
+void APokemon::OnFlyingAnimationsLoaded()
+{
+    FString errorText = L"AnimationLoaded";
+
+    _areFlyingAnimationsLoaded = true;
+
+    LOAD_ANIMS(_pokemonAnimationsFly, flyingAnimationsStruct);
+
+    if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
+        OnInitialize();
 }
 
 void APokemon::InitializeAnimations(const int32 entry, const FString folderStr)
 {
-    const EPokemonSpecies pokemonSpecies = static_cast<EPokemonSpecies>(entry);
-    auto loadAnimation = [&](const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
-    {
-        FString animationPath = folderStr + UPokemonUtils::GetPathForPokemonAnimation(pokemonSpecies, pokemonAnimation, pokemonAnimTier);
-        UAnimSequence* anim = LoadObject<UAnimSequence>(nullptr, *animationPath);
-        if (!anim)
-        {
-            animationPath = folderStr + UPokemonUtils::GetPathForPokemonAnimation(pokemonSpecies, pokemonAnimation, pokemonAnimTier);
-            anim = LoadObject<UAnimSequence>(nullptr, *animationPath);
-        }
+    //auto loadAnimation = [&](const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
+    //{
+    //    FString animationPath = folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, pokemonAnimation, pokemonAnimTier);
+    //    UAnimSequence* anim = LoadObject<UAnimSequence>(nullptr, *animationPath);
+    //    if (!anim)
+    //    {
+    //        animationPath = folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, pokemonAnimation, pokemonAnimTier);
+    //        anim = LoadObject<UAnimSequence>(nullptr, *animationPath);
+    //    }
 
-        if (!anim && _showDebug && GEngine)
-        {
-            FString errorText = L"Error while loading anim for species: " + FString::FromInt(static_cast<int32>(pokemonSpecies)) + L" animId: " + FString::FromInt(static_cast<int32>(pokemonAnimation)) + L" tierId: " + FString::FromInt(static_cast<int32>(pokemonAnimTier));
-            GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, errorText);
-        }
-        return anim;
-    };
+    //    if (!anim && _showDebug && GEngine)
+    //    {
+    //        FString errorText = L"Error while loading anim for species: " + FString::FromInt(entry) + L" animId: " + FString::FromInt(static_cast<int32>(pokemonAnimation)) + L" tierId: " + FString::FromInt(static_cast<int32>(pokemonAnimTier));
+    //        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, errorText);
+    //    }
+    //    return anim;
+    //};
 
-    auto animTier = EPokemonAnimTier::Normal;
-    if (CanWalk())
-    {
-        LOAD_ANIMS(_pokemonAnimations, animTier);
-    }
+    //auto animTier = EPokemonAnimTier::Normal;
+    //if (CanWalk())
+    //{
+    //    LOAD_ANIMS(_pokemonAnimations, animTier);
+    //}
 
-    animTier = EPokemonAnimTier::Swimming;
-    if (CanSwim())
-    {
-        LOAD_ANIMS(_pokemonAnimationsSwim, animTier);
-    }
+    //animTier = EPokemonAnimTier::Swimming;
+    //if (CanSwim())
+    //{
+    //    LOAD_ANIMS(_pokemonAnimationsSwim, animTier);
+    //}
 
-    animTier = EPokemonAnimTier::Flying;
-    if (CanFly())
-    {
-        LOAD_ANIMS(_pokemonAnimationsFly, animTier);
-    }
+    //animTier = EPokemonAnimTier::Flying;
+    //if (CanFly())
+    //{
+    //    LOAD_ANIMS(_pokemonAnimationsFly, animTier);
+    //}
 }
 

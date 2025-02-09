@@ -53,10 +53,21 @@ void UPokemonUtils::InitDatabase()
     isDatabaseLoaded = true;
 }
 
-FString UPokemonUtils::GetPathForPokemonAnimation(const EPokemonSpecies entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
+TArray<FString> UPokemonUtils::GetAnimationsForPokemon(const int32 entry, const EPokemonAnimTier pokemonAnimTier)
 {
-    std::string entryStr = std::format("{:0>4}", static_cast<int32>(entry));
-    std::string animTier = std::format("{:0>2}", static_cast<int32>(pokemonAnimTier));
+    TArray<FString> res;
+    for (auto& pair : AnimationPathNames)
+    {
+        res.Add(GetAnimationNameForPokemon(entry, pair.Key, pokemonAnimTier));
+    }
+
+    return res;
+}
+
+FString UPokemonUtils::GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
+{
+    std::string entryStr = std::format("{:0>4}", entry);
+    std::string animTier = std::format("{:0>2}", static_cast<uint8>(pokemonAnimTier));
     std::string animId = std::format("{:0>3}", static_cast<int32>(pokemonAnimation));
     std::string formStr = std::format("{:0>2}", "0"); // Form ID (alternative forms like Giratina)
     std::string colorsStr = std::format("{:0>2}", "0"); // Color ID (only color change, like arceus)
@@ -68,7 +79,8 @@ FString UPokemonUtils::GetPathForPokemonAnimation(const EPokemonSpecies entry, c
     }
     std::string animStr = std::string(TCHAR_TO_UTF8(*animFStr));
     std::string path = std::format("pm{}_{}_{}_{}{}_{}", entryStr, formStr, colorsStr, animTier, animId, animStr);
-    return FString(path.c_str());
+    std::string path2 = path + "." + path;
+    return FString(path2.c_str());
 }
 
 FString UPokemonUtils::FirstLetterToUppercase(FString name)

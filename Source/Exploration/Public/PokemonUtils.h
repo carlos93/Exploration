@@ -539,7 +539,8 @@ enum class EPokemonAnimations
     UniqueWaitEnd = 702,
 };
 
-enum class EPokemonAnimTier
+UENUM(BlueprintType)
+enum class EPokemonAnimTier : uint8
 {
     Normal = 0,
     Swimming = 10,
@@ -792,15 +793,35 @@ class UPokemonUtils : public UObject
     GENERATED_BODY()
 
 public:
+    UFUNCTION()
     static void InitDatabase();
 
     static TMap<EPokemonAnimations, FString> AnimationPathNames;
 
-    static FString GetPathForPokemonAnimation(const EPokemonSpecies entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier);
+    UFUNCTION(BlueprintPure)
+    static TArray<FString> GetAnimationsForPokemon(const int32 entry, const EPokemonAnimTier pokemonAnimTier);
+
+    static FString GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier);
 
     UFUNCTION(BlueprintPure)
     static FString FirstLetterToUppercase(const FString name);
 
 private:
     static bool isDatabaseLoaded;
+};
+
+UCLASS()
+class UBaseData : public UPrimaryDataAsset
+{
+    GENERATED_BODY()
+
+public:
+
+    FPrimaryAssetId GetPrimaryAssetId() const override { return FPrimaryAssetId(FPrimaryAssetType(GetClass()->GetFName()), FName(*FString::FromInt(Id))); };
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+    int32 Id;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+    bool IsValid;
 };
