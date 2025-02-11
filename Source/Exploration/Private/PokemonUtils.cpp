@@ -53,23 +53,12 @@ void UPokemonUtils::InitDatabase()
     isDatabaseLoaded = true;
 }
 
-TArray<FString> UPokemonUtils::GetAnimationsForPokemon(const int32 entry, const EPokemonAnimTier pokemonAnimTier)
-{
-    TArray<FString> res;
-    for (auto& pair : AnimationPathNames)
-    {
-        res.Add(GetAnimationNameForPokemon(entry, pair.Key, pokemonAnimTier));
-    }
-
-    return res;
-}
-
-FString UPokemonUtils::GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
+FString UPokemonUtils::GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier, const uint8 gender)
 {
     std::string entryStr = std::format("{:0>4}", entry);
     std::string animTier = std::format("{:0>2}", static_cast<uint8>(pokemonAnimTier));
     std::string animId = std::format("{:0>3}", static_cast<int32>(pokemonAnimation));
-    std::string formStr = std::format("{:0>2}", "0"); // Form ID (alternative forms like Giratina)
+    std::string formStr = std::format("{:0>2}", gender); // Form ID (alternative forms like Giratina)
     std::string colorsStr = std::format("{:0>2}", "0"); // Color ID (only color change, like arceus)
 
     FString animFStr = TEXT("");

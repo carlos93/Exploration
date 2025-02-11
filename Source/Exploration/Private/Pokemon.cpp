@@ -112,15 +112,25 @@ void APokemon::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
 
-void APokemon::Initialize(const int32 entry)
+void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
 {
     UPokemonUtils::InitDatabase();
 
     FString entryFixed = FString(std::format("{:0>4}", entry).c_str());
-    FString folderStr = "/Game/Models/pm" + entryFixed + "/";
+    FString genderStr = FString(std::format("{:0>2}", gender).c_str());
+    FString formStr = FString(std::format("{:0>2}", form).c_str());
 
-    FString skeletalMeshPath = folderStr + "pm" + entryFixed;
+    FString folderStr = "/Game/Models/pm" + entryFixed + "_" + genderStr + "_" + formStr + "/";
+
+    FString skeletalMeshPath = folderStr + "pm" + entryFixed + "_" + genderStr + "_" + formStr;
     USkeletalMesh* skeletalMesh = LoadObject<USkeletalMesh>(nullptr, *skeletalMeshPath);
+    if (!skeletalMesh)
+    {
+        folderStr = "/Game/Models/pm" + entryFixed + "_00_00/";
+        skeletalMeshPath = folderStr + "pm" + entryFixed + "_00_00";
+        gender = 0U;
+        skeletalMesh = LoadObject<USkeletalMesh>(nullptr, *skeletalMeshPath);
+    }
     GetMesh()->SetSkeletalMesh(skeletalMesh);
 
     if (!CanWalk())
@@ -138,15 +148,12 @@ void APokemon::Initialize(const int32 entry)
 
     auto createPtr = [&](const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
     {
-        FSoftObjectPath animationPath = folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, pokemonAnimation, pokemonAnimTier);
+        FSoftObjectPath animationPath = folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, pokemonAnimation, pokemonAnimTier, gender);
         TSoftObjectPtr<UAnimSequence> animationPtr(animationPath);
         return animationPtr;
     };
 
     FStreamableManager& Streamable = UAssetManager::GetStreamableManager();
-    //_pokemonAnimations.Attack1 = TSoftObjectPtr<UAnimSequence>(FSoftObjectPath(folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, EPokemonAnimations::Attack1, EPokemonAnimTier::Normal)));
-
-
     TArray<FSoftObjectPath> walkingAnimations;
     FPokemonAnimationsSoftPtr animationsStruct;
     auto animTier = EPokemonAnimTier::Normal;

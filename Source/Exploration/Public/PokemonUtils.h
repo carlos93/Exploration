@@ -798,10 +798,7 @@ public:
 
     static TMap<EPokemonAnimations, FString> AnimationPathNames;
 
-    UFUNCTION(BlueprintPure)
-    static TArray<FString> GetAnimationsForPokemon(const int32 entry, const EPokemonAnimTier pokemonAnimTier);
-
-    static FString GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier);
+    static FString GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier, const uint8 gender);
 
     UFUNCTION(BlueprintPure)
     static FString FirstLetterToUppercase(const FString name);

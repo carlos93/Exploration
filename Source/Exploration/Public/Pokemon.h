@@ -211,7 +211,7 @@ public:
 	// Functions
 	// ---------------
 	UFUNCTION(BlueprintCallable, meta = (Category = "Pokemon"))
-	void Initialize(const int32 entry);
+	void Initialize(const int32 entry, uint8 gender = 0U, uint8 form = 0U);
 
 	UFUNCTION(BlueprintCallable, meta = (Category = "Pokemon"))
 	bool CanWalk() const { return (_allowedMoveTypes & static_cast<int32>(EPokemonMoveType::Walk)) != 0; }
