@@ -537,14 +537,15 @@ enum class EPokemonAnimations
     UniqueWaitStart = 700,
     UniqueWaitLoop = 701,
     UniqueWaitEnd = 702,
+    Eye = 8000,
 };
 
 UENUM(BlueprintType)
 enum class EPokemonAnimTier : uint8
 {
     Normal = 0,
-    Swimming = 10,
-    Flying = 20
+    Swimming = 1,
+    Flying = 2
 };
 
 UENUM(BlueprintType, meta = (Bitflags, UseEnumValuesAsMaskValuesInEditor = "true"))

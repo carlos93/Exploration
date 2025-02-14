@@ -75,6 +75,8 @@ struct EXPLORATION_API FPokemonAnimationsSoftPtr
 	TSoftObjectPtr<UAnimSequence> UniqueWaitLoop;
 
 	TSoftObjectPtr<UAnimSequence> UniqueWaitEnd;
+
+	TSoftObjectPtr<UAnimSequence> Eye;
 };
 
 USTRUCT(BlueprintType)
@@ -180,6 +182,9 @@ struct EXPLORATION_API FPokemonAnimations
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
 	UAnimSequence* UniqueWaitEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* Eye;
 };
 
 UCLASS()

@@ -9,7 +9,7 @@
 #include <format>
 #include <string>
 
-#define LOAD_ANIM(animationsStruct, animationName, animTier) (animationsStruct.animationName = loadAnimation (EPokemonAnimations::animationName, animTier))
+//#define LOAD_ANIM(animationsStruct, animationName, animTier) (animationsStruct.animationName = loadAnimation (EPokemonAnimations::animationName, animTier))
 
 
 #define CREATE_SOFT_POINTER_ANIM(member, animId, tier, container) \
@@ -51,40 +51,43 @@
     CREATE_SOFT_POINTER_ANIM(member, UniqueWaitLoop, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, UniqueWaitEnd, tier, container)
 
+#define LOAD_ANIM(member, anim, container) member.anim = container.anim.LoadSynchronous();
+
 #define LOAD_ANIMS(member, container) \
-    member.DefaultWait = container.DefaultWait.LoadSynchronous(); \
-    member.BattleWait = container.BattleWait.LoadSynchronous(); \
-    member.DefaultIdle1= container.DefaultIdle1.LoadSynchronous(); \
-    member.DefaultIdle2= container.DefaultIdle2.LoadSynchronous(); \
-    member.TurnLeft= container.TurnLeft.LoadSynchronous(); \
-    member.TurnRight= container.TurnRight.LoadSynchronous(); \
-    member.Walk= container.Walk.LoadSynchronous(); \
-    member.Run= container.Run.LoadSynchronous(); \
-    member.WildBoolStart= container.WildBoolStart.LoadSynchronous(); \
-    member.WildBoolLoop= container.WildBoolLoop.LoadSynchronous(); \
-    member.WildBoolEnd= container.WildBoolEnd.LoadSynchronous(); \
-    member.RestStart= container.RestStart.LoadSynchronous(); \
-    member.RestLoop= container.RestLoop.LoadSynchronous(); \
-    member.RestEnd= container.RestEnd.LoadSynchronous(); \
-    member.SleepStart= container.SleepStart.LoadSynchronous(); \
-    member.SleepLoop= container.SleepLoop.LoadSynchronous(); \
-    member.SleepEnd= container.SleepEnd.LoadSynchronous(); \
-    member.Roar= container.Roar.LoadSynchronous(); \
-    member.WildShot= container.WildShot.LoadSynchronous(); \
-    member.Attack1= container.Attack1.LoadSynchronous(); \
-    member.Attack2= container.Attack2.LoadSynchronous(); \
-    member.RangeAttack1= container.RangeAttack1.LoadSynchronous(); \
-    member.RangeAttack2Start= container.RangeAttack2Start.LoadSynchronous(); \
-    member.RangeAttack2Loop= container.RangeAttack2Loop.LoadSynchronous(); \
-    member.RangeAttack2End= container.RangeAttack2End.LoadSynchronous(); \
-    member.Damage1= container.Damage1.LoadSynchronous(); \
-    member.Damage2= container.Damage2.LoadSynchronous(); \
-    member.Glad= container.Glad.LoadSynchronous(); \
-    member.Notice= container.Notice.LoadSynchronous(); \
-    member.Hate= container.Hate.LoadSynchronous(); \
-    member.UniqueWaitStart= container.UniqueWaitStart.LoadSynchronous(); \
-    member.UniqueWaitLoop= container.UniqueWaitLoop.LoadSynchronous(); \
-    member.UniqueWaitEnd = container.UniqueWaitEnd.LoadSynchronous()
+    LOAD_ANIM(member, DefaultWait , container); \
+    LOAD_ANIM(member, BattleWait , container); \
+    LOAD_ANIM(member, DefaultIdle1, container); \
+    LOAD_ANIM(member, DefaultIdle2, container); \
+    LOAD_ANIM(member, TurnLeft, container); \
+    LOAD_ANIM(member, TurnRight, container); \
+    LOAD_ANIM(member, Walk, container); \
+    LOAD_ANIM(member, Run, container); \
+    LOAD_ANIM(member, WildBoolStart, container); \
+    LOAD_ANIM(member, WildBoolLoop, container); \
+    LOAD_ANIM(member, WildBoolEnd, container); \
+    LOAD_ANIM(member, RestStart, container); \
+    LOAD_ANIM(member, RestLoop, container); \
+    LOAD_ANIM(member, RestEnd, container); \
+    LOAD_ANIM(member, SleepStart, container); \
+    LOAD_ANIM(member, SleepLoop, container); \
+    LOAD_ANIM(member, SleepEnd, container); \
+    LOAD_ANIM(member, Roar, container); \
+    LOAD_ANIM(member, WildShot, container); \
+    LOAD_ANIM(member, Attack1, container); \
+    LOAD_ANIM(member, Attack2, container); \
+    LOAD_ANIM(member, RangeAttack1, container); \
+    LOAD_ANIM(member, RangeAttack2Start, container); \
+    LOAD_ANIM(member, RangeAttack2Loop, container); \
+    LOAD_ANIM(member, RangeAttack2End, container); \
+    LOAD_ANIM(member, Damage1, container); \
+    LOAD_ANIM(member, Damage2, container); \
+    LOAD_ANIM(member, Glad, container); \
+    LOAD_ANIM(member, Notice, container); \
+    LOAD_ANIM(member, Hate, container); \
+    LOAD_ANIM(member, UniqueWaitStart, container); \
+    LOAD_ANIM(member, UniqueWaitLoop, container); \
+    LOAD_ANIM(member, UniqueWaitEnd , container); \
+    LOAD_ANIM(member, Eye, container)
 
 // Sets default values
 APokemon::APokemon() : _entry{0}, _crySound(nullptr), _speed{}, _isRunning{false}, _isSleeping{false}, _pokemonAnimations{}, _pokemonAnimationsSwim{}, _pokemonAnimationsFly{}, _currentMoveTypes{EPokemonMoveType::Walk}, _allowedMoveTypes{static_cast<int32>(EPokemonMoveType::Walk |EPokemonMoveType::Swim)}, _showDebug{false}, _areWalkingAnimationsLoaded{false}, _areSwimmingAnimationsLoaded{false}, _areFlyingAnimationsLoaded{false}
@@ -160,6 +163,7 @@ void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
     if (CanWalk())
     {
         FILL_CONTAINER_ANIMS(walkingAnimationsStruct, animTier, walkingAnimations);
+        CREATE_SOFT_POINTER_ANIM(walkingAnimationsStruct, Eye, EPokemonAnimTier::Normal, walkingAnimations);
         Streamable.RequestAsyncLoad(walkingAnimations, FStreamableDelegate::CreateUObject(this, &APokemon::OnWalkingAnimationsLoaded));
     }
     else
@@ -172,6 +176,7 @@ void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
     if (CanSwim())
     {
         FILL_CONTAINER_ANIMS(swimmingAnimationsStruct, animTier, swimmingAnimations);
+        CREATE_SOFT_POINTER_ANIM(swimmingAnimationsStruct, Eye, EPokemonAnimTier::Normal, swimmingAnimations);
         Streamable.RequestAsyncLoad(swimmingAnimations, FStreamableDelegate::CreateUObject(this, &APokemon::OnSwimmingAnimationsLoaded));
     }
     else
@@ -184,6 +189,7 @@ void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
     if (CanFly())
     {
         FILL_CONTAINER_ANIMS(flyingAnimationsStruct, animTier, flyingAnimations);
+        CREATE_SOFT_POINTER_ANIM(flyingAnimationsStruct, Eye, EPokemonAnimTier::Normal, flyingAnimations);
         Streamable.RequestAsyncLoad(flyingAnimations, FStreamableDelegate::CreateUObject(this, &APokemon::OnFlyingAnimationsLoaded));
     }
     else
