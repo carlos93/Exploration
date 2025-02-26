@@ -788,6 +788,18 @@ enum class EItemCategory : uint8
     Picnic
 };
 
+UENUM(BlueprintType)
+enum class EGrowthRateType : uint8
+{
+    None = 0U,
+    Slow,
+    Medium,
+    Fast,
+    MediumSlow,
+    SlowThenVeryFast,
+    FastThenVerySlow
+};
+
 UCLASS()
 class UPokemonUtils : public UObject
 {
