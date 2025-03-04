@@ -5542,6 +5542,63 @@
     <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DiscoveryBeaconReceiver\DiscoveryBeaconReceiver.uplugin">
       <Filter>Plugins\DiscoveryBeaconReceiver</Filter>
     </None>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport">
+      <UniqueIdentifier>{ED1C908E-B181-3ED2-BB28-5025FB5D491D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport\HostProject">
+      <UniqueIdentifier>{DC619900-689B-3B76-8A5C-410DDD0C8AC7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport\HostProject\Plugins">
+      <UniqueIdentifier>{D3100570-4A02-3B9D-8409-E2E094586AD7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport">
+      <UniqueIdentifier>{46F4B383-EA82-361A-A745-8F0FF3DAC005}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\DLSSMoviePipelineSupport.uplugin">
+      <Filter>Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport</Filter>
+    </None>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Config">
+      <UniqueIdentifier>{55951D82-530D-32FE-B08B-6E1196BDBF8A}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Config\FilterPlugin.ini">
+      <Filter>Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Config</Filter>
+    </None>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Resources">
+      <UniqueIdentifier>{EE3E4E88-8F7A-3D92-8571-27BB7CE37524}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Resources\Icon128.png">
+      <Filter>Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Resources</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS">
+      <UniqueIdentifier>{2A4FACC8-4400-312A-973A-252726C1F41F}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\DLSS.uplugin">
+      <Filter>Plugins\DLSS</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Config">
+      <UniqueIdentifier>{802B5328-A79F-3D82-B20D-506FBD7B6F81}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Config\FilterPlugin.ini">
+      <Filter>Plugins\DLSS\Config</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Resources">
+      <UniqueIdentifier>{4801242E-AAEF-3AD9-8CDF-17782BA703FE}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Resources\Icon128.png">
+      <Filter>Plugins\DLSS\Resources</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Shaders">
+      <UniqueIdentifier>{6B3E8AED-3546-3FC6-9859-9BC2145B3ADB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\DLSS\Shaders\Private">
+      <UniqueIdentifier>{12AC913D-BFDC-39FA-A970-8C787C8BFC9C}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Shaders\Private\GBufferResolve.usf">
+      <Filter>Plugins\DLSS\Shaders\Private</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Shaders\Private\VelocityCombine.usf">
+      <Filter>Plugins\DLSS\Shaders\Private</Filter>
+    </None>
     <Filter Include="Plugins\Editor">
       <UniqueIdentifier>{B7E4F416-E8A2-3211-A8BF-928BF6C9AA9D}</UniqueIdentifier>
     </Filter>
@@ -10753,6 +10810,30 @@
     <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\LightWeightInstancesEditor\Resources\Icon128.png">
       <Filter>Plugins\LightWeightInstancesEditor\Resources</Filter>
     </None>
+    <Filter Include="Plugins\Marketplace">
+      <UniqueIdentifier>{1E520605-3A0C-397B-A124-81C6D67B82FE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\Marketplace\AsyncLoac1ceae7b44acV11">
+      <UniqueIdentifier>{18B64111-448B-3EF5-A0A1-CC1DCC48CF61}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\AsyncLoadingScreen.uplugin">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11</Filter>
+    </None>
+    <Filter Include="Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Resources">
+      <UniqueIdentifier>{20AAB1C6-3B33-37F3-ABF0-058D115C2816}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Resources\Icon128.png">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Resources</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Resources\Icon256.png">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Resources</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Resources\Icon512.png">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Resources</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Resources\Icon64.png">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Resources</Filter>
+    </None>
     <Filter Include="Plugins\Media">
       <UniqueIdentifier>{EFC0DBFF-6FDA-393C-AC79-85C04FCB8860}</UniqueIdentifier>
     </Filter>
@@ -11377,6 +11458,48 @@
     <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NetcodeUnitTest\NUTUnrealEngine\NUTUnrealEngine.uplugin">
       <Filter>Plugins\NetcodeUnitTest\NUTUnrealEngine</Filter>
     </None>
+    <Filter Include="Plugins\NIS">
+      <UniqueIdentifier>{4EC0E70D-6DF1-31C6-AE17-D02250419CE5}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\NIS.uplugin">
+      <Filter>Plugins\NIS</Filter>
+    </None>
+    <Filter Include="Plugins\NIS\Config">
+      <UniqueIdentifier>{5C97C22D-6E6E-3E65-9039-B620F1CBC8FF}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Config\FilterPlugin.ini">
+      <Filter>Plugins\NIS\Config</Filter>
+    </None>
+    <Filter Include="Plugins\NIS\Resources">
+      <UniqueIdentifier>{815D55CF-85CE-3261-AE8A-FE5F8F86487A}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Resources\Icon128.png">
+      <Filter>Plugins\NIS\Resources</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Resources\Icon256.png">
+      <Filter>Plugins\NIS\Resources</Filter>
+    </None>
+    <Filter Include="Plugins\NIS\Shaders">
+      <UniqueIdentifier>{A96A290F-39E4-3CC6-82C5-8121F86D284B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\NIS\Shaders\Private">
+      <UniqueIdentifier>{C142555F-89E5-3D6D-8F81-ABE1EF24A02A}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Shaders\Private\NISUpscaler.usf">
+      <Filter>Plugins\NIS\Shaders\Private</Filter>
+    </None>
+    <Filter Include="Plugins\NIS\Shaders\ThirdParty">
+      <UniqueIdentifier>{C0D748A7-AD78-34C6-8778-2560D3781107}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Shaders\ThirdParty\NIS_Main.glsl">
+      <Filter>Plugins\NIS\Shaders\ThirdParty</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Shaders\ThirdParty\NIS_Main.hlsl">
+      <Filter>Plugins\NIS\Shaders\ThirdParty</Filter>
+    </None>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Shaders\ThirdParty\NIS_Scaler.h">
+      <Filter>Plugins\NIS\Shaders\ThirdParty</Filter>
+    </ClCompile>
     <Filter Include="Plugins\NNE">
       <UniqueIdentifier>{5C08DE79-E894-348E-90D1-EC28938C3F48}</UniqueIdentifier>
     </Filter>
@@ -15450,6 +15573,54 @@
     </Filter>
     <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Slate\SlateScripting\SlateScripting.uplugin">
       <Filter>Plugins\Slate\SlateScripting</Filter>
+    </None>
+    <Filter Include="Plugins\StreamlineDeepDVC">
+      <UniqueIdentifier>{4B4F0505-32C9-307B-B1B3-32B31A9C4230}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\StreamlineDeepDVC\StreamlineDeepDVC.uplugin">
+      <Filter>Plugins\StreamlineDeepDVC</Filter>
+    </None>
+    <Filter Include="Plugins\StreamlineDeepDVC\Config">
+      <UniqueIdentifier>{D1C89B93-4E0A-37E7-9572-BB76E80C9692}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\StreamlineDeepDVC\Config\FilterPlugin.ini">
+      <Filter>Plugins\StreamlineDeepDVC\Config</Filter>
+    </None>
+    <Filter Include="Plugins\StreamlineDeepDVC\Resources">
+      <UniqueIdentifier>{D3C7417E-3086-30A9-9798-2A43DEE6F84D}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\StreamlineDeepDVC\Resources\Icon128.png">
+      <Filter>Plugins\StreamlineDeepDVC\Resources</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline">
+      <UniqueIdentifier>{F6D2EC7F-118A-3D8A-8903-B4736C8D399E}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Streamline.uplugin">
+      <Filter>Plugins\Streamline</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline\Config">
+      <UniqueIdentifier>{E5DEA78F-2312-3916-ADE2-C7A4D6E305B1}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Config\FilterPlugin.ini">
+      <Filter>Plugins\Streamline\Config</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline\Resources">
+      <UniqueIdentifier>{8FAC9EA4-63CD-37C1-8C8F-3EAE37F49945}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Resources\Icon128.png">
+      <Filter>Plugins\Streamline\Resources</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline\Shaders">
+      <UniqueIdentifier>{29FE6A9C-0F9C-3CDC-96D0-50BC0734A108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\Streamline\Shaders\Private">
+      <UniqueIdentifier>{5A1B08CC-8DA9-3D18-A2A2-82ADA103DDCC}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Shaders\Private\UIHintExtraction.usf">
+      <Filter>Plugins\Streamline\Shaders\Private</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Shaders\Private\VelocityCombine.usf">
+      <Filter>Plugins\Streamline\Shaders\Private</Filter>
     </None>
     <Filter Include="Plugins\Tests">
       <UniqueIdentifier>{DA85954A-D091-3BA0-895A-66ACA4719B2F}</UniqueIdentifier>
@@ -135007,6 +135178,246 @@
     <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DiscoveryBeaconReceiver\Source\DiscoveryBeaconReceiver\Public\DiscoveryBeaconReceiverModule.h">
       <Filter>Plugins\DiscoveryBeaconReceiver\Source\DiscoveryBeaconReceiver\Public</Filter>
     </ClCompile>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source">
+      <UniqueIdentifier>{C75E8EA5-078E-3CD9-AFE8-DFEDE2D0FB8F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport">
+      <UniqueIdentifier>{FFEC6E68-7E23-3468-9478-BFF4B21FD371}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport\DLSSMoviePipelineSupport.Build.cs">
+      <Filter>Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport</Filter>
+    </None>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport\Private">
+      <UniqueIdentifier>{946A1416-F71E-3A42-B07E-92B9C595F398}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport\Private\DLSSMoviePipelineSupportModule.cpp">
+      <Filter>Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport\Private\MoviePipelineDLSSSetting.cpp">
+      <Filter>Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport\Public">
+      <UniqueIdentifier>{669103EF-082C-3F4C-B02D-9F5C46AADFD5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport\Public\MoviePipelineDLSSSetting.h">
+      <Filter>Plugins\DLSSMoviePipelineSupport\HostProject\Plugins\DLSSMoviePipelineSupport\Source\DLSSMoviePipelineSupport\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source">
+      <UniqueIdentifier>{095721E9-7112-362B-A65F-D4C3735A234E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\DLSS\Source\DLSSBlueprint">
+      <UniqueIdentifier>{38B81CEC-BCA7-3E8C-AB8F-2298C9BD8EF6}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSBlueprint\DLSSBlueprint.Build.cs">
+      <Filter>Plugins\DLSS\Source\DLSSBlueprint</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Source\DLSSBlueprint\Private">
+      <UniqueIdentifier>{682F86AB-F8B3-32DC-9760-241FB505256F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSBlueprint\Private\DLSSLibrary.cpp">
+      <Filter>Plugins\DLSS\Source\DLSSBlueprint\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\DLSSBlueprint\Public">
+      <UniqueIdentifier>{4ADF1750-BD42-34B9-849B-234750EE8229}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSBlueprint\Public\DLSSLibrary.h">
+      <Filter>Plugins\DLSS\Source\DLSSBlueprint\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\DLSSEditor">
+      <UniqueIdentifier>{26D08ED7-4C0C-36AA-B550-DACB37990FBE}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSEditor\DLSSEditor.Build.cs">
+      <Filter>Plugins\DLSS\Source\DLSSEditor</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Source\DLSSEditor\Private">
+      <UniqueIdentifier>{26390370-47F5-3F66-973D-76F134430FB5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSEditor\Private\DLSSEditor.cpp">
+      <Filter>Plugins\DLSS\Source\DLSSEditor\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\DLSSEditor\Public">
+      <UniqueIdentifier>{AC13DA30-C80C-3269-BD61-FA1F512A6702}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSEditor\Public\DLSSEditor.h">
+      <Filter>Plugins\DLSS\Source\DLSSEditor\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\DLSSUtility">
+      <UniqueIdentifier>{18A070D9-33E1-308A-B3D4-3AA685386D4A}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSUtility\DLSSUtility.Build.cs">
+      <Filter>Plugins\DLSS\Source\DLSSUtility</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Source\DLSSUtility\Private">
+      <UniqueIdentifier>{473F9A9A-4B47-30F1-B29F-90938F436688}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSUtility\Private\DLSSUtility.cpp">
+      <Filter>Plugins\DLSS\Source\DLSSUtility\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSUtility\Private\GBufferResolvePass.cpp">
+      <Filter>Plugins\DLSS\Source\DLSSUtility\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSUtility\Private\VelocityCombinePass.cpp">
+      <Filter>Plugins\DLSS\Source\DLSSUtility\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\DLSSUtility\Public">
+      <UniqueIdentifier>{E9440797-A443-3B5C-B897-EA157B4E0173}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSUtility\Public\DLSSUtility.h">
+      <Filter>Plugins\DLSS\Source\DLSSUtility\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSUtility\Public\GBufferResolvePass.h">
+      <Filter>Plugins\DLSS\Source\DLSSUtility\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSSUtility\Public\VelocityCombinePass.h">
+      <Filter>Plugins\DLSS\Source\DLSSUtility\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\DLSS">
+      <UniqueIdentifier>{13D54732-3903-3912-B627-903539FA3F68}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\DLSS.Build.cs">
+      <Filter>Plugins\DLSS\Source\DLSS</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Source\DLSS\Private">
+      <UniqueIdentifier>{35D3525A-ECE4-3879-82B3-BC5FB7A38DEE}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Private\DLSS.cpp">
+      <Filter>Plugins\DLSS\Source\DLSS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Private\DLSSDenoiser.cpp">
+      <Filter>Plugins\DLSS\Source\DLSS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Private\DLSSDenoiser.h">
+      <Filter>Plugins\DLSS\Source\DLSS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Private\DLSSUpscaler.cpp">
+      <Filter>Plugins\DLSS\Source\DLSS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Private\DLSSUpscalerHistory.cpp">
+      <Filter>Plugins\DLSS\Source\DLSS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Private\DLSSUpscalerHistory.h">
+      <Filter>Plugins\DLSS\Source\DLSS\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Private\DLSSUpscalerPrivate.h">
+      <Filter>Plugins\DLSS\Source\DLSS\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\DLSS\Public">
+      <UniqueIdentifier>{8F5697F7-9357-3696-978E-87678C1292F4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Public\DLSS.h">
+      <Filter>Plugins\DLSS\Source\DLSS\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Public\DLSSSettings.h">
+      <Filter>Plugins\DLSS\Source\DLSS\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\DLSS\Public\DLSSUpscaler.h">
+      <Filter>Plugins\DLSS\Source\DLSS\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXD3D11RHI">
+      <UniqueIdentifier>{8ABC8339-48E3-3CF0-AF21-2C045A3B941E}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXD3D11RHI\NGXD3D11RHI.Build.cs">
+      <Filter>Plugins\DLSS\Source\NGXD3D11RHI</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Source\NGXD3D11RHI\Private">
+      <UniqueIdentifier>{B4064E97-B5ED-364E-B585-377DF9FD072F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXD3D11RHI\Private\NGXD3D11RHI.cpp">
+      <Filter>Plugins\DLSS\Source\NGXD3D11RHI\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXD3D11RHI\Public">
+      <UniqueIdentifier>{0A8DD7F4-80F2-3BDE-8E47-DDE182F5ACD4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXD3D11RHI\Public\NGXD3D11RHI.h">
+      <Filter>Plugins\DLSS\Source\NGXD3D11RHI\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXD3D12RHI">
+      <UniqueIdentifier>{82B6A870-EB08-3906-B9BB-C827A01B7C24}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXD3D12RHI\NGXD3D12RHI.Build.cs">
+      <Filter>Plugins\DLSS\Source\NGXD3D12RHI</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Source\NGXD3D12RHI\Private">
+      <UniqueIdentifier>{213266A9-A2B9-3A1D-ABF1-CFA0EE51A019}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXD3D12RHI\Private\NGXD3D12RHI.cpp">
+      <Filter>Plugins\DLSS\Source\NGXD3D12RHI\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXD3D12RHI\Public">
+      <UniqueIdentifier>{39ED93AA-2469-3597-8AC1-BEFFD572EDBC}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXD3D12RHI\Public\NGXD3D12RHI.h">
+      <Filter>Plugins\DLSS\Source\NGXD3D12RHI\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXRHI">
+      <UniqueIdentifier>{E91B9FFD-DF83-3B75-8D96-61F43DF0526A}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXRHI\NGXRHI.Build.cs">
+      <Filter>Plugins\DLSS\Source\NGXRHI</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Source\NGXRHI\Private">
+      <UniqueIdentifier>{8DA2CA04-3D78-3A03-A4FD-1CDC70896B75}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXRHI\Private\NGXRHI.cpp">
+      <Filter>Plugins\DLSS\Source\NGXRHI\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXRHI\Public">
+      <UniqueIdentifier>{9693D19C-6AAF-348C-BA2E-ADA5BB9EE612}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXRHI\Public\NGXRHI.h">
+      <Filter>Plugins\DLSS\Source\NGXRHI\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXVulkanRHIPreInit">
+      <UniqueIdentifier>{4D1695D4-0EA1-3E10-91A4-E34FEB390A22}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXVulkanRHIPreInit\NGXVulkanRHIPreInit.Build.cs">
+      <Filter>Plugins\DLSS\Source\NGXVulkanRHIPreInit</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Source\NGXVulkanRHIPreInit\Private">
+      <UniqueIdentifier>{FA61CCCE-CBAA-3C9E-A200-45F5F758C142}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXVulkanRHIPreInit\Private\NGXVulkanRHIPreInit.cpp">
+      <Filter>Plugins\DLSS\Source\NGXVulkanRHIPreInit\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXVulkanRHIPreInit\Public">
+      <UniqueIdentifier>{E6AA7F60-5C35-3F6F-AB88-70C2A4D321DA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXVulkanRHIPreInit\Public\NGXVulkanRHIPreInit.h">
+      <Filter>Plugins\DLSS\Source\NGXVulkanRHIPreInit\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXVulkanRHI">
+      <UniqueIdentifier>{AA70F8D8-4BA4-37E3-9254-4060271CDB94}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXVulkanRHI\NGXVulkanRHI.Build.cs">
+      <Filter>Plugins\DLSS\Source\NGXVulkanRHI</Filter>
+    </None>
+    <Filter Include="Plugins\DLSS\Source\NGXVulkanRHI\Private">
+      <UniqueIdentifier>{7A0E0D89-071D-3CA2-BDD1-33AC4AF0239F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXVulkanRHI\Private\NGXVulkanRHI.cpp">
+      <Filter>Plugins\DLSS\Source\NGXVulkanRHI\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\NGXVulkanRHI\Public">
+      <UniqueIdentifier>{2FBDE505-B41A-35D9-9189-326F2E6D4CDC}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\NGXVulkanRHI\Public\NGXVulkanRHI.h">
+      <Filter>Plugins\DLSS\Source\NGXVulkanRHI\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\DLSS\Source\ThirdParty">
+      <UniqueIdentifier>{6853F756-BFE6-32AD-8329-CEB1D6011B25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\DLSS\Source\ThirdParty\NGX">
+      <UniqueIdentifier>{43232E86-2548-3808-AABF-DD6700F9D954}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\ThirdParty\NGX\LICENSE.txt">
+      <Filter>Plugins\DLSS\Source\ThirdParty\NGX</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\ThirdParty\NGX\NGX.Build.cs">
+      <Filter>Plugins\DLSS\Source\ThirdParty\NGX</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\DLSS\Source\ThirdParty\NGX\NGX.tps">
+      <Filter>Plugins\DLSS\Source\ThirdParty\NGX</Filter>
+    </None>
     <Filter Include="Plugins\Editor\AssetManagerEditor\Source">
       <UniqueIdentifier>{818A67A8-855C-3319-B788-7937C58A7B0E}</UniqueIdentifier>
     </Filter>
@@ -187525,6 +187936,111 @@
     <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\LightWeightInstancesEditor\Source\LightWeightInstancesEditor\Public\LightWeightInstancesEditor.h">
       <Filter>Plugins\LightWeightInstancesEditor\Source\LightWeightInstancesEditor\Public</Filter>
     </ClCompile>
+    <Filter Include="Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source">
+      <UniqueIdentifier>{808EDF07-AC89-369E-96C7-6032FF97D6BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen">
+      <UniqueIdentifier>{77CF8432-C889-3891-A0C5-683A63924E5F}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\AsyncLoadingScreen.Build.cs">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen</Filter>
+    </None>
+    <Filter Include="Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private">
+      <UniqueIdentifier>{C5F90E7C-0004-3FEC-BE11-6DB1E4AC0853}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\AsyncLoadingScreen.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\AsyncLoadingScreenLibrary.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\LoadingScreenSettings.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SBackgroundWidget.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SCenterLayout.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SClassicLayout.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SDualSidebarLayout.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SHorizontalLoadingWidget.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SLetterboxLayout.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SLoadingCompleteText.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SLoadingScreenLayout.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SLoadingWidget.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SSidebarLayout.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\STipWidget.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private\SVerticalLoadingWidget.cpp">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public">
+      <UniqueIdentifier>{811C5DE1-332D-3BAD-A5C6-F9BFFE89A9DE}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\AsyncLoadingScreen.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\AsyncLoadingScreenLibrary.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\LoadingScreenSettings.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SBackgroundWidget.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SCenterLayout.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SClassicLayout.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SDualSidebarLayout.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SHorizontalLoadingWidget.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SLetterboxLayout.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SLoadingCompleteText.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SLoadingScreenLayout.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SLoadingWidget.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SSidebarLayout.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\STipWidget.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public\SVerticalLoadingWidget.h">
+      <Filter>Plugins\Marketplace\AsyncLoac1ceae7b44acV11\Source\AsyncLoadingScreen\Public</Filter>
+    </ClCompile>
     <Filter Include="Plugins\Media\AjaMedia\Source">
       <UniqueIdentifier>{DE248E0B-1A51-351E-A15C-AD2EE157DE63}</UniqueIdentifier>
     </Filter>
@@ -201279,6 +201795,72 @@
     </ClCompile>
     <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NetcodeUnitTest\NUTUnrealEngine\Source\NUTUnrealEngine\Public\UnrealEngineEnvironment.h">
       <Filter>Plugins\NetcodeUnitTest\NUTUnrealEngine\Source\NUTUnrealEngine\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\NIS\Source">
+      <UniqueIdentifier>{0CB8DA1A-E69E-3CB1-A637-C3FBEE749922}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\NIS\Source\NISBlueprint">
+      <UniqueIdentifier>{6F708478-B042-3EA5-BED1-DC36F997F226}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISBlueprint\NISBlueprint.Build.cs">
+      <Filter>Plugins\NIS\Source\NISBlueprint</Filter>
+    </None>
+    <Filter Include="Plugins\NIS\Source\NISBlueprint\Private">
+      <UniqueIdentifier>{BE0A179F-0324-356C-9A2F-63A84313ABA4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISBlueprint\Private\NISLibrary.cpp">
+      <Filter>Plugins\NIS\Source\NISBlueprint\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\NIS\Source\NISBlueprint\Public">
+      <UniqueIdentifier>{0EF31EDC-0EE0-3C38-9B6E-9CE275ECAD2F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISBlueprint\Public\NISLibrary.h">
+      <Filter>Plugins\NIS\Source\NISBlueprint\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\NIS\Source\NISCore">
+      <UniqueIdentifier>{2389FBBF-EB72-37A6-97AF-E26E1F5BEAE1}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISCore\NISCore.Build.cs">
+      <Filter>Plugins\NIS\Source\NISCore</Filter>
+    </None>
+    <Filter Include="Plugins\NIS\Source\NISCore\Private">
+      <UniqueIdentifier>{B2FF21AA-17DA-34B7-8FA7-E220F0298E08}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISCore\Private\NISCore.cpp">
+      <Filter>Plugins\NIS\Source\NISCore\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISCore\Private\NISUpscaler.cpp">
+      <Filter>Plugins\NIS\Source\NISCore\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISCore\Private\NISUpscaler.h">
+      <Filter>Plugins\NIS\Source\NISCore\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\NIS\Source\NISCore\Public">
+      <UniqueIdentifier>{F53FDB7C-A0DD-3FA1-967B-6F49C7BBFEB5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISCore\Public\NISCore.h">
+      <Filter>Plugins\NIS\Source\NISCore\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\NIS\Source\NISShaders">
+      <UniqueIdentifier>{E85FB974-6E7E-317D-BA27-A4B4EC24FE78}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISShaders\NISShaders.Build.cs">
+      <Filter>Plugins\NIS\Source\NISShaders</Filter>
+    </None>
+    <Filter Include="Plugins\NIS\Source\NISShaders\Private">
+      <UniqueIdentifier>{76AE2B0E-7CDF-302C-8204-4A694B698F1E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISShaders\Private\NISShaders.cpp">
+      <Filter>Plugins\NIS\Source\NISShaders\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISShaders\Private\NIS_Config.h">
+      <Filter>Plugins\NIS\Source\NISShaders\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\NIS\Source\NISShaders\Public">
+      <UniqueIdentifier>{B656CEA5-F29E-3969-8751-ED5DE347E58B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\NIS\Source\NISShaders\Public\NISShaders.h">
+      <Filter>Plugins\NIS\Source\NISShaders\Public</Filter>
     </ClCompile>
     <Filter Include="Plugins\NNE\NNEDenoiser\Source">
       <UniqueIdentifier>{D5EE8B0B-2F1B-3D31-8237-4CCD11E25F3A}</UniqueIdentifier>
@@ -238309,6 +238891,228 @@
     <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Slate\SlateScripting\Source\SlateScriptingCommands\Public\UICommandsScriptingSubsystem.h">
       <Filter>Plugins\Slate\SlateScripting\Source\SlateScriptingCommands\Public</Filter>
     </ClCompile>
+    <Filter Include="Plugins\StreamlineDeepDVC\Source">
+      <UniqueIdentifier>{B89E2A29-55AA-37DC-BE53-9D938330CDEE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\StreamlineDeepDVC\Source\StreamlineDeepDVCBlueprint">
+      <UniqueIdentifier>{3796F5CC-B720-3610-9468-1BD2612F1495}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\StreamlineDeepDVC\Source\StreamlineDeepDVCBlueprint\StreamlineDeepDVCBlueprint.Build.cs">
+      <Filter>Plugins\StreamlineDeepDVC\Source\StreamlineDeepDVCBlueprint</Filter>
+    </None>
+    <Filter Include="Plugins\StreamlineDeepDVC\Source\StreamlineDeepDVCBlueprint\Private">
+      <UniqueIdentifier>{FA11BE81-2C00-3D5D-9CBC-BBC8CE4ADCAE}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\StreamlineDeepDVC\Source\StreamlineDeepDVCBlueprint\Private\StreamlineLibaryDeepDVC.cpp">
+      <Filter>Plugins\StreamlineDeepDVC\Source\StreamlineDeepDVCBlueprint\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\StreamlineDeepDVC\Source\StreamlineDeepDVCBlueprint\Public">
+      <UniqueIdentifier>{C4DD67D6-7A07-3560-AC09-CB611FAF1E8A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\StreamlineDeepDVC\Source\StreamlineDeepDVCBlueprint\Public\StreamlineLibraryDeepDVC.h">
+      <Filter>Plugins\StreamlineDeepDVC\Source\StreamlineDeepDVCBlueprint\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source">
+      <UniqueIdentifier>{90DD261C-0F5B-35D9-9F6B-D15C6E072DB7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\Streamline\Source\StreamlineBlueprint">
+      <UniqueIdentifier>{C1A8F4B8-2BE3-377B-989D-8E54C1B4F653}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineBlueprint\StreamlineBlueprint.Build.cs">
+      <Filter>Plugins\Streamline\Source\StreamlineBlueprint</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline\Source\StreamlineBlueprint\Private">
+      <UniqueIdentifier>{328B53D4-2798-3B83-913C-CE6466C7FECB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineBlueprint\Private\StreamlineLibrary.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineBlueprint\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineBlueprint\Private\StreamlineLibraryDLSSG.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineBlueprint\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineBlueprint\Private\StreamlineLibraryPrivate.h">
+      <Filter>Plugins\Streamline\Source\StreamlineBlueprint\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineBlueprint\Private\StreamlineLibraryReflex.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineBlueprint\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineBlueprint\Public">
+      <UniqueIdentifier>{29E1C445-4FE6-3AE2-891A-BFCCFE196CF1}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineBlueprint\Public\StreamlineLibrary.h">
+      <Filter>Plugins\Streamline\Source\StreamlineBlueprint\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineBlueprint\Public\StreamlineLibraryDLSSG.h">
+      <Filter>Plugins\Streamline\Source\StreamlineBlueprint\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineBlueprint\Public\StreamlineLibraryReflex.h">
+      <Filter>Plugins\Streamline\Source\StreamlineBlueprint\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineCore">
+      <UniqueIdentifier>{4B99FF3F-7A31-3A22-8FFF-AC7D75816793}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\StreamlineCore.Build.cs">
+      <Filter>Plugins\Streamline\Source\StreamlineCore</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline\Source\StreamlineCore\Private">
+      <UniqueIdentifier>{BCFE787C-A8CE-39CB-A952-BABB22A9640E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Private\StreamlineCore.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Private\StreamlineCorePrivate.h">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Private\StreamlineDeepDVC.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Private\StreamlineDLSSG.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Private\StreamlineReflex.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Private\StreamlineViewExtension.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Private\StreamlineViewExtension.h">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineCore\Public">
+      <UniqueIdentifier>{0C19DDD9-1646-324E-BB74-F0BF89AF30B8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Public\StreamlineCore.h">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Public\StreamlineDeepDVC.h">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Public\StreamlineDLSSG.h">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\Public\StreamlineReflex.h">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineCore\ThirdParty">
+      <UniqueIdentifier>{0B9E7EB2-A422-3344-B62D-537A3950B291}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineCore\ThirdParty\reflexstats.h">
+      <Filter>Plugins\Streamline\Source\StreamlineCore\ThirdParty</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineD3D11RHI">
+      <UniqueIdentifier>{F2B60B0E-6EB7-3184-B868-C45E1CBCC881}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineD3D11RHI\StreamlineD3D11RHI.Build.cs">
+      <Filter>Plugins\Streamline\Source\StreamlineD3D11RHI</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline\Source\StreamlineD3D11RHI\Private">
+      <UniqueIdentifier>{CD270CA6-5D5A-3136-A72C-57D075AF5D3C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineD3D11RHI\Private\StreamlineD3D11RHI.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineD3D11RHI\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineD3D11RHI\Public">
+      <UniqueIdentifier>{97333AC2-1D2E-3746-91BB-9F145095BBEA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineD3D11RHI\Public\StreamlineD3D11RHI.h">
+      <Filter>Plugins\Streamline\Source\StreamlineD3D11RHI\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineD3D12RHI">
+      <UniqueIdentifier>{BD05BDF9-1FFE-3487-BC99-B6499C641B34}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineD3D12RHI\StreamlineD3D12RHI.Build.cs">
+      <Filter>Plugins\Streamline\Source\StreamlineD3D12RHI</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline\Source\StreamlineD3D12RHI\Private">
+      <UniqueIdentifier>{8E2D72FA-5835-3E55-B311-5290556E865F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineD3D12RHI\Private\StreamlineD3D12RHI.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineD3D12RHI\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineD3D12RHI\Public">
+      <UniqueIdentifier>{8FFF518F-7781-355D-9A17-04C21F67A0A5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineD3D12RHI\Public\StreamlineD3D12RHI.h">
+      <Filter>Plugins\Streamline\Source\StreamlineD3D12RHI\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineRHI">
+      <UniqueIdentifier>{9294A02E-F1CF-306C-B1B6-152E07FDC83B}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineRHI\StreamlineRHI.Build.cs">
+      <Filter>Plugins\Streamline\Source\StreamlineRHI</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline\Source\StreamlineRHI\Private">
+      <UniqueIdentifier>{12C18CE4-D7FC-3310-99B2-9F6F126A67AF}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineRHI\Private\StreamlineAPI.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineRHI\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineRHI\Private\StreamlineRHI.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineRHI\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineRHI\Private\StreamlineRHIPrivate.h">
+      <Filter>Plugins\Streamline\Source\StreamlineRHI\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineRHI\Private\StreamlineSecureLoad.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineRHI\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineRHI\Public">
+      <UniqueIdentifier>{E123E0E0-5F06-31B2-BB9A-8F2044A829AF}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineRHI\Public\StreamlineAPI.h">
+      <Filter>Plugins\Streamline\Source\StreamlineRHI\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineRHI\Public\StreamlineConversions.h">
+      <Filter>Plugins\Streamline\Source\StreamlineRHI\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineRHI\Public\StreamlineRHI.h">
+      <Filter>Plugins\Streamline\Source\StreamlineRHI\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineRHI\Public\StreamlineSettings.h">
+      <Filter>Plugins\Streamline\Source\StreamlineRHI\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineShaders">
+      <UniqueIdentifier>{8016ECB8-FD09-3019-889B-C68DC92DAD7B}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineShaders\StreamlineShaders.Build.cs">
+      <Filter>Plugins\Streamline\Source\StreamlineShaders</Filter>
+    </None>
+    <Filter Include="Plugins\Streamline\Source\StreamlineShaders\Private">
+      <UniqueIdentifier>{05B73BBF-E121-3C53-BBFC-46EDB0856094}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineShaders\Private\StreamlineShaders.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineShaders\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineShaders\Private\UIHintExtractionPass.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineShaders\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineShaders\Private\VelocityCombinePass.cpp">
+      <Filter>Plugins\Streamline\Source\StreamlineShaders\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\StreamlineShaders\Public">
+      <UniqueIdentifier>{9D93A3A6-5E9E-3702-9379-1874667A7D50}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineShaders\Public\StreamlineShaders.h">
+      <Filter>Plugins\Streamline\Source\StreamlineShaders\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineShaders\Public\UIHintExtractionPass.h">
+      <Filter>Plugins\Streamline\Source\StreamlineShaders\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\StreamlineShaders\Public\VelocityCombinePass.h">
+      <Filter>Plugins\Streamline\Source\StreamlineShaders\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\Streamline\Source\ThirdParty">
+      <UniqueIdentifier>{F80F3865-5621-37AC-AD8F-61AA66088ED0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\Streamline\Source\ThirdParty\Streamline">
+      <UniqueIdentifier>{E5C92B81-D0E6-3F6F-BF40-35CDF006FD64}</UniqueIdentifier>
+    </Filter>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\ThirdParty\Streamline\Streamline.Build.cs">
+      <Filter>Plugins\Streamline\Source\ThirdParty\Streamline</Filter>
+    </None>
+    <None Include="E:\Epic Games\UE_5.5\Engine\Plugins\Streamline\Source\ThirdParty\Streamline\Streamline.tps">
+      <Filter>Plugins\Streamline\Source\ThirdParty\Streamline</Filter>
+    </None>
     <Filter Include="Plugins\Tests\AutomationDriverTests\Source">
       <UniqueIdentifier>{9E4C468F-04D7-31B3-816D-8DEBD7B69A7C}</UniqueIdentifier>
     </Filter>

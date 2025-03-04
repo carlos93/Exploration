@@ -11,11 +11,16 @@
     <None Include="..\..\Source\ExplorationEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\README.md" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
       <Filter>Config</Filter>
     </None>
     <None Include="..\..\Config\DefaultEngine.ini">
@@ -28,7 +33,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Exploration">
-      <UniqueIdentifier>{94A1D0C1-5657-3A5A-9815-7671CFEA4C0F}</UniqueIdentifier>
+      <UniqueIdentifier>{98EB1B2B-FE50-35E1-8542-26846B2E0A5B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Exploration\Exploration.Build.cs">
       <Filter>Source\Exploration</Filter>
@@ -40,21 +45,33 @@
       <Filter>Source\Exploration</Filter>
     </ClCompile>
     <Filter Include="Source\Exploration\Private">
-      <UniqueIdentifier>{C7B26820-BE6D-3F40-AEDA-61C93AD7A93B}</UniqueIdentifier>
+      <UniqueIdentifier>{A1B03691-03B4-3796-8BF8-B9429D5DF141}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Exploration\Private\Pokemon.cpp">
-      <Filter>Source\Exploration\Private</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Exploration\Private\DayNightSubsystem.cpp">
       <Filter>Source\Exploration\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Exploration\Private\DayNightSubsystem.h">
+      <Filter>Source\Exploration\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Exploration\Private\FWaitUntilLatent.cpp">
+      <Filter>Source\Exploration\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Exploration\Private\Pokemon.cpp">
+      <Filter>Source\Exploration\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Exploration\Private\PokemonUtils.cpp">
+      <Filter>Source\Exploration\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\Exploration\Public">
-      <UniqueIdentifier>{C8A49F26-1F9B-35D4-8F2E-DBB7BA8DBEC9}</UniqueIdentifier>
+      <UniqueIdentifier>{7F32119D-2A75-3C5B-918C-97275F9F6E4E}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Exploration\Public\FWaitUntilLatent.h">
+      <Filter>Source\Exploration\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Exploration\Public\Pokemon.h">
       <Filter>Source\Exploration\Public</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Exploration\Public\DayNightSubsystem.h">
+    <ClCompile Include="..\..\Source\Exploration\Public\PokemonUtils.h">
       <Filter>Source\Exploration\Public</Filter>
     </ClCompile>
   </ItemGroup>
