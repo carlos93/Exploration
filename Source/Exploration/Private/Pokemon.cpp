@@ -206,6 +206,11 @@ void APokemon::OnWalkingAnimationsLoaded()
 
     LOAD_ANIMS(_pokemonAnimations, walkingAnimationsStruct);
 
+    if (_pokemonAnimations.BattleWait == nullptr)
+    {
+        _pokemonAnimations.BattleWait = _pokemonAnimations.DefaultWait;
+    }
+
     if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
         OnInitialize();
 }
@@ -218,6 +223,11 @@ void APokemon::OnSwimmingAnimationsLoaded()
 
     LOAD_ANIMS(_pokemonAnimationsSwim, swimmingAnimationsStruct);
 
+    if (_pokemonAnimationsSwim.BattleWait == nullptr)
+    {
+        _pokemonAnimationsSwim.BattleWait = _pokemonAnimationsSwim.DefaultWait;
+    }
+
     if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
         OnInitialize();
 }
@@ -229,6 +239,11 @@ void APokemon::OnFlyingAnimationsLoaded()
     _areFlyingAnimationsLoaded = true;
 
     LOAD_ANIMS(_pokemonAnimationsFly, flyingAnimationsStruct);
+
+    if (_pokemonAnimationsFly.BattleWait == nullptr)
+    {
+        _pokemonAnimationsFly.BattleWait = _pokemonAnimationsFly.DefaultWait;
+    }
 
     if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
         OnInitialize();
