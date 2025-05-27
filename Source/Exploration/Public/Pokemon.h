@@ -264,7 +264,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pokemon")
 	EPokemonMoveType _currentMoveTypes;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Category = "Pokemon", Bitmask, BitmaskEnum = EPokemonMoveType))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Category = "Pokemon", Bitmask, BitmaskEnum = "/Script/Exploration.EPokemonMoveType"))
 	int32 _allowedMoveTypes;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pokemon")
