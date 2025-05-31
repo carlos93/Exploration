@@ -800,6 +800,26 @@ enum class EGrowthRateType : uint8
     FastThenVerySlow
 };
 
+
+UENUM(BlueprintType)
+enum class EEvolutionTrigger : uint8
+{
+    None = 0U,
+    LevelUp,
+    Trade,
+    UseItem,
+    Shed,
+    Spin,
+    TowerOfDarkness,
+    TowerOfWaters,
+    ThreeCriticalHits,
+    TakeDamage,
+    Other,
+    AgileStyleMove,
+    StrongStyleMove,
+    RecoilDamage
+};
+
 UCLASS()
 class UPokemonUtils : public UObject
 {
