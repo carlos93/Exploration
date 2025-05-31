@@ -30,3 +30,6 @@ Releases/0.1/Windows/Exploration-Windows.pak
 Releases/0.1/Windows/Exploration-Windows.ucas
 Releases/0.1/Windows/Exploration-Windows.utoc
 Releases/0.1/Windows/Metadata/DevelopmentAssetRegistry.bin
+PythonScripts/api.cache.bak
+PythonScripts/api.cache.dat
+PythonScripts/api.cache.dir
