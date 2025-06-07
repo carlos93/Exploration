@@ -546,7 +546,7 @@ if __name__=="__main__":
     #     pr.enable()
         cache.set_cache(cache_path)
         parser = ParserPokemon()
-        parser.start_parsing(1, 252)
+        parser.start_parsing(1, 501)
         # for i in range (1, 550):
         #     parser.parse_evolution_chain(i, evolution_chain_folder_path)
         # for i in range (1, 500):

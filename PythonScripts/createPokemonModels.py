@@ -74,9 +74,9 @@ def parse_info(model, animations, output_path):
     bpy.ops.wm.read_homefile()
 
 
-is_pkmn_legends_arceus = False
+is_pkmn_legends_arceus = True
 is_shiny = False
-for i in range(88, 90):
+for i in range(226, 227):
     export_model(i, directory_pla if is_pkmn_legends_arceus else directory_sv, output)
 
 # with Pool() as pool:
