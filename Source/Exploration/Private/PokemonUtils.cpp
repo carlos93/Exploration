@@ -43,6 +43,12 @@ void UPokemonUtils::InitDatabase()
     AnimationPathNames.Add(EPokemonAnimations::RangeAttack2End, "rangeattack02_end");
     AnimationPathNames.Add(EPokemonAnimations::Damage1, "damage01");
     AnimationPathNames.Add(EPokemonAnimations::Damage2, "damage02");
+    AnimationPathNames.Add(EPokemonAnimations::StunStart, "stun01_start");
+    AnimationPathNames.Add(EPokemonAnimations::StunLoop, "stun01_loop");
+    AnimationPathNames.Add(EPokemonAnimations::StunEnd, "stun01_end");
+    AnimationPathNames.Add(EPokemonAnimations::DownStart, "down01_start");
+    AnimationPathNames.Add(EPokemonAnimations::DownLoop, "down01_loop");
+    AnimationPathNames.Add(EPokemonAnimations::DownEnd, "down01_end");
     AnimationPathNames.Add(EPokemonAnimations::Glad, "glad01");
     AnimationPathNames.Add(EPokemonAnimations::Notice, "notice01");
     AnimationPathNames.Add(EPokemonAnimations::Hate, "hate01");

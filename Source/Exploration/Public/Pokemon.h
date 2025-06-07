@@ -23,9 +23,7 @@ struct EXPLORATION_API FPokemonAnimationsSoftPtr
 	TSoftObjectPtr<UAnimSequence> Run;
 
 	TSoftObjectPtr<UAnimSequence> WildBoolStart;
-
 	TSoftObjectPtr<UAnimSequence> WildBoolLoop;
-
 	TSoftObjectPtr<UAnimSequence> WildBoolEnd;
 
 	TSoftObjectPtr<UAnimSequence> TurnLeft;
@@ -33,15 +31,11 @@ struct EXPLORATION_API FPokemonAnimationsSoftPtr
 	TSoftObjectPtr<UAnimSequence> TurnRight;
 
 	TSoftObjectPtr<UAnimSequence> RestStart;
-
 	TSoftObjectPtr<UAnimSequence> RestLoop;
-
 	TSoftObjectPtr<UAnimSequence> RestEnd;
 
 	TSoftObjectPtr<UAnimSequence> SleepStart;
-
 	TSoftObjectPtr<UAnimSequence> SleepLoop;
-
 	TSoftObjectPtr<UAnimSequence> SleepEnd;
 
 	TSoftObjectPtr<UAnimSequence> Roar;
@@ -55,14 +49,20 @@ struct EXPLORATION_API FPokemonAnimationsSoftPtr
 	TSoftObjectPtr<UAnimSequence> RangeAttack1;
 
 	TSoftObjectPtr<UAnimSequence> RangeAttack2Start;
-
 	TSoftObjectPtr<UAnimSequence> RangeAttack2Loop;
-
 	TSoftObjectPtr<UAnimSequence> RangeAttack2End;
 
 	TSoftObjectPtr<UAnimSequence> Damage1;
 
 	TSoftObjectPtr<UAnimSequence> Damage2;
+
+	TSoftObjectPtr<UAnimSequence> StunStart;
+	TSoftObjectPtr<UAnimSequence> StunLoop;
+	TSoftObjectPtr<UAnimSequence> StunEnd;
+
+	TSoftObjectPtr<UAnimSequence> DownStart;
+	TSoftObjectPtr<UAnimSequence> DownLoop;
+	TSoftObjectPtr<UAnimSequence> DownEnd;
 
 	TSoftObjectPtr<UAnimSequence> Glad;
 
@@ -71,9 +71,7 @@ struct EXPLORATION_API FPokemonAnimationsSoftPtr
 	TSoftObjectPtr<UAnimSequence> Hate;
 
 	TSoftObjectPtr<UAnimSequence> UniqueWaitStart;
-
 	TSoftObjectPtr<UAnimSequence> UniqueWaitLoop;
-
 	TSoftObjectPtr<UAnimSequence> UniqueWaitEnd;
 
 	TSoftObjectPtr<UAnimSequence> Eye;
@@ -166,6 +164,24 @@ struct EXPLORATION_API FPokemonAnimations
 	UAnimSequence* Damage2;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* StunStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* StunLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* StunEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* DownStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* DownLoop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* DownEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
 	UAnimSequence* Glad;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
@@ -230,8 +246,6 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-	void InitializeAnimations(const int32 entry, const FString folderStr);
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pokemon")

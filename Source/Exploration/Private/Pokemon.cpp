@@ -9,12 +9,15 @@
 #include <format>
 #include <string>
 
-//#define LOAD_ANIM(animationsStruct, animationName, animTier) (animationsStruct.animationName = loadAnimation (EPokemonAnimations::animationName, animTier))
-
 
 #define CREATE_SOFT_POINTER_ANIM(member, animId, tier, container) \
     member.animId = createPtr(EPokemonAnimations::animId, tier); \
     container.AddUnique(member.animId.ToSoftObjectPath());
+
+#define CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, animId, tier, container) \
+    CREATE_SOFT_POINTER_ANIM(member, animId##Start, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, animId##Loop, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, animId##End, tier, container);
 
 #define FILL_CONTAINER_ANIMS(member, tier, container) \
     CREATE_SOFT_POINTER_ANIM(member, DefaultWait, tier, container); \
@@ -25,33 +28,31 @@
     CREATE_SOFT_POINTER_ANIM(member, TurnRight, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Walk, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Run, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, WildBoolStart, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, WildBoolLoop, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, WildBoolEnd, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, RestStart, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, RestLoop, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, RestEnd, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, SleepStart, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, SleepLoop, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, SleepEnd, tier, container); \
+    CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, WildBool, tier, container); \
+    CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, Rest, tier, container); \
+    CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, Sleep, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Roar, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, WildShot, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Attack1, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Attack2, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, RangeAttack1, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, RangeAttack2Start, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, RangeAttack2Loop, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, RangeAttack2End, tier, container); \
+    CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, RangeAttack2, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Damage1, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Damage2, tier, container); \
+    CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, Stun, tier, container); \
+    CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, Down, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Glad, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Notice, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Hate, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, UniqueWaitStart, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, UniqueWaitLoop, tier, container); \
-    CREATE_SOFT_POINTER_ANIM(member, UniqueWaitEnd, tier, container)
+    CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, UniqueWait, tier, container); \
+    CREATE_SOFT_POINTER_ANIM(member, Eye, tier, container);
 
 #define LOAD_ANIM(member, anim, container) member.anim = container.anim.LoadSynchronous();
+
+#define LOAD_ANIM_START_LOOP_END(member, anim, container) \
+    LOAD_ANIM(member, anim##Start, container); \
+    LOAD_ANIM(member, anim##Loop, container); \
+    LOAD_ANIM(member, anim##End, container);
 
 #define LOAD_ANIMS(member, container) \
     LOAD_ANIM(member, DefaultWait , container); \
@@ -62,31 +63,23 @@
     LOAD_ANIM(member, TurnRight, container); \
     LOAD_ANIM(member, Walk, container); \
     LOAD_ANIM(member, Run, container); \
-    LOAD_ANIM(member, WildBoolStart, container); \
-    LOAD_ANIM(member, WildBoolLoop, container); \
-    LOAD_ANIM(member, WildBoolEnd, container); \
-    LOAD_ANIM(member, RestStart, container); \
-    LOAD_ANIM(member, RestLoop, container); \
-    LOAD_ANIM(member, RestEnd, container); \
-    LOAD_ANIM(member, SleepStart, container); \
-    LOAD_ANIM(member, SleepLoop, container); \
-    LOAD_ANIM(member, SleepEnd, container); \
+    LOAD_ANIM_START_LOOP_END(member, WildBool, container); \
+    LOAD_ANIM_START_LOOP_END(member, Rest, container); \
+    LOAD_ANIM_START_LOOP_END(member, Sleep, container); \
     LOAD_ANIM(member, Roar, container); \
     LOAD_ANIM(member, WildShot, container); \
     LOAD_ANIM(member, Attack1, container); \
     LOAD_ANIM(member, Attack2, container); \
     LOAD_ANIM(member, RangeAttack1, container); \
-    LOAD_ANIM(member, RangeAttack2Start, container); \
-    LOAD_ANIM(member, RangeAttack2Loop, container); \
-    LOAD_ANIM(member, RangeAttack2End, container); \
+    LOAD_ANIM_START_LOOP_END(member, RangeAttack2, container); \
     LOAD_ANIM(member, Damage1, container); \
     LOAD_ANIM(member, Damage2, container); \
     LOAD_ANIM(member, Glad, container); \
     LOAD_ANIM(member, Notice, container); \
     LOAD_ANIM(member, Hate, container); \
-    LOAD_ANIM(member, UniqueWaitStart, container); \
-    LOAD_ANIM(member, UniqueWaitLoop, container); \
-    LOAD_ANIM(member, UniqueWaitEnd , container); \
+    LOAD_ANIM_START_LOOP_END(member, Stun, container); \
+    LOAD_ANIM_START_LOOP_END(member, Down, container); \
+    LOAD_ANIM_START_LOOP_END(member, UniqueWait, container); \
     LOAD_ANIM(member, Eye, container)
 
 // Sets default values
@@ -200,8 +193,6 @@ void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
 
 void APokemon::OnWalkingAnimationsLoaded()
 {
-    FString errorText = L"AnimationLoaded";
-
     _areWalkingAnimationsLoaded = true;
 
     LOAD_ANIMS(_pokemonAnimations, walkingAnimationsStruct);
@@ -217,8 +208,6 @@ void APokemon::OnWalkingAnimationsLoaded()
 
 void APokemon::OnSwimmingAnimationsLoaded()
 {
-    FString errorText = L"AnimationLoaded";
-
     _areSwimmingAnimationsLoaded = true;
 
     LOAD_ANIMS(_pokemonAnimationsSwim, swimmingAnimationsStruct);
@@ -234,8 +223,6 @@ void APokemon::OnSwimmingAnimationsLoaded()
 
 void APokemon::OnFlyingAnimationsLoaded()
 {
-    FString errorText = L"AnimationLoaded";
-
     _areFlyingAnimationsLoaded = true;
 
     LOAD_ANIMS(_pokemonAnimationsFly, flyingAnimationsStruct);
@@ -247,44 +234,5 @@ void APokemon::OnFlyingAnimationsLoaded()
 
     if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
         OnInitialize();
-}
-
-void APokemon::InitializeAnimations(const int32 entry, const FString folderStr)
-{
-    //auto loadAnimation = [&](const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
-    //{
-    //    FString animationPath = folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, pokemonAnimation, pokemonAnimTier);
-    //    UAnimSequence* anim = LoadObject<UAnimSequence>(nullptr, *animationPath);
-    //    if (!anim)
-    //    {
-    //        animationPath = folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, pokemonAnimation, pokemonAnimTier);
-    //        anim = LoadObject<UAnimSequence>(nullptr, *animationPath);
-    //    }
-
-    //    if (!anim && _showDebug && GEngine)
-    //    {
-    //        FString errorText = L"Error while loading anim for species: " + FString::FromInt(entry) + L" animId: " + FString::FromInt(static_cast<int32>(pokemonAnimation)) + L" tierId: " + FString::FromInt(static_cast<int32>(pokemonAnimTier));
-    //        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, errorText);
-    //    }
-    //    return anim;
-    //};
-
-    //auto animTier = EPokemonAnimTier::Normal;
-    //if (CanWalk())
-    //{
-    //    LOAD_ANIMS(_pokemonAnimations, animTier);
-    //}
-
-    //animTier = EPokemonAnimTier::Swimming;
-    //if (CanSwim())
-    //{
-    //    LOAD_ANIMS(_pokemonAnimationsSwim, animTier);
-    //}
-
-    //animTier = EPokemonAnimTier::Flying;
-    //if (CanFly())
-    //{
-    //    LOAD_ANIMS(_pokemonAnimationsFly, animTier);
-    //}
 }
 
