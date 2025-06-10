@@ -112,6 +112,10 @@ void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
 {
     UPokemonUtils::InitDatabase();
 
+    _areWalkingAnimationsLoaded = false;
+    _areSwimmingAnimationsLoaded = false;
+    _areFlyingAnimationsLoaded = false;
+
     FString entryFixed = FString(std::format("{:0>4}", entry).c_str());
     FString genderStr = FString(std::format("{:0>2}", gender).c_str());
     FString formStr = FString(std::format("{:0>2}", form).c_str());
