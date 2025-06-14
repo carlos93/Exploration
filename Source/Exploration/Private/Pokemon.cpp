@@ -36,6 +36,7 @@
     CREATE_SOFT_POINTER_ANIM(member, Attack1, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Attack2, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, RangeAttack1, tier, container); \
+    CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, RangeAttack1, tier, container); \
     CREATE_SOFT_POINTER_ANIM_START_LOOP_END(member, RangeAttack2, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Damage1, tier, container); \
     CREATE_SOFT_POINTER_ANIM(member, Damage2, tier, container); \
@@ -71,6 +72,7 @@
     LOAD_ANIM(member, Attack1, container); \
     LOAD_ANIM(member, Attack2, container); \
     LOAD_ANIM(member, RangeAttack1, container); \
+    LOAD_ANIM_START_LOOP_END(member, RangeAttack1, container); \
     LOAD_ANIM_START_LOOP_END(member, RangeAttack2, container); \
     LOAD_ANIM(member, Damage1, container); \
     LOAD_ANIM(member, Damage2, container); \
@@ -144,7 +146,6 @@ void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
             _currentMoveTypes = EPokemonMoveType::Fly;
         }
     }
-
 
     auto createPtr = [&](const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
     {

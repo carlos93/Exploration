@@ -38,6 +38,9 @@ void UPokemonUtils::InitDatabase()
     AnimationPathNames.Add(EPokemonAnimations::Attack1, "attack01");
     AnimationPathNames.Add(EPokemonAnimations::Attack2, "attack02");
     AnimationPathNames.Add(EPokemonAnimations::RangeAttack1, "rangeattack01");
+    AnimationPathNames.Add(EPokemonAnimations::RangeAttack1Start, "rangeattack01_start");
+    AnimationPathNames.Add(EPokemonAnimations::RangeAttack1Loop, "rangeattack01_loop");
+    AnimationPathNames.Add(EPokemonAnimations::RangeAttack1End, "rangeattack01_end");
     AnimationPathNames.Add(EPokemonAnimations::RangeAttack2Start, "rangeattack02_start");
     AnimationPathNames.Add(EPokemonAnimations::RangeAttack2Loop, "rangeattack02_loop");
     AnimationPathNames.Add(EPokemonAnimations::RangeAttack2End, "rangeattack02_end");
@@ -62,9 +65,15 @@ void UPokemonUtils::InitDatabase()
 
 FString UPokemonUtils::GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier, const uint8 gender)
 {
+    int32 pokemonAnimationId = static_cast<int32>(pokemonAnimation);
+    if (pokemonAnimation == EPokemonAnimations::RangeAttack1)
+    {
+        pokemonAnimationId = 450;
+    }
+
     std::string entryStr = std::format("{:0>4}", entry);
     std::string animTier = std::format("{:0>1}", static_cast<uint8>(pokemonAnimTier));
-    std::string animId = std::format("{:0>4}", static_cast<int32>(pokemonAnimation));
+    std::string animId = std::format("{:0>4}", pokemonAnimationId);
     std::string formStr = std::format("{:0>2}", gender); // Form ID (alternative forms like Giratina)
     std::string colorsStr = std::format("{:0>2}", "0"); // Color ID (only color change, like arceus)
 
@@ -73,6 +82,7 @@ FString UPokemonUtils::GetAnimationNameForPokemon(const int32 entry, const EPoke
     {
         animFStr = AnimationPathNames[pokemonAnimation];
     }
+
     std::string animStr = std::string(TCHAR_TO_UTF8(*animFStr));
     std::string path = std::format("pm{}_{}_{}_{}{}_{}", entryStr, formStr, colorsStr, animTier, animId, animStr);
     std::string path2 = path + "." + path;

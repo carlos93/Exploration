@@ -48,6 +48,10 @@ struct EXPLORATION_API FPokemonAnimationsSoftPtr
 
 	TSoftObjectPtr<UAnimSequence> RangeAttack1;
 
+	TSoftObjectPtr<UAnimSequence> RangeAttack1Start;
+	TSoftObjectPtr<UAnimSequence> RangeAttack1Loop;
+	TSoftObjectPtr<UAnimSequence> RangeAttack1End;
+
 	TSoftObjectPtr<UAnimSequence> RangeAttack2Start;
 	TSoftObjectPtr<UAnimSequence> RangeAttack2Loop;
 	TSoftObjectPtr<UAnimSequence> RangeAttack2End;
@@ -147,6 +151,15 @@ struct EXPLORATION_API FPokemonAnimations
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
 	UAnimSequence* RangeAttack1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* RangeAttack1Start;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* RangeAttack1Loop;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
+	UAnimSequence* RangeAttack1End;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pokemon")
 	UAnimSequence* RangeAttack2Start;

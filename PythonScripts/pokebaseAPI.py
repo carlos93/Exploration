@@ -16,22 +16,22 @@ move_folder_path = "/Game/Database/Moves/"
 item_folder_path = "/Game/Database/Items/"
 evolution_chain_folder_path = "/Game/Database/EvolutionChains/"
 
-pokemon_data_bp_asset = "/Game/ThirdPerson/Blueprints/DataAssets/BP_PokemonData"
+pokemon_data_bp_asset = "/Game/Core/Blueprints/DataAssets/BP_PokemonData"
 pokemon_data_bp_class = EditorAssetLibrary.load_blueprint_class(pokemon_data_bp_asset)
 
-ability_data_bp_asset = "/Game/ThirdPerson/Blueprints/DataAssets/BP_AbilityData"
+ability_data_bp_asset = "/Game/Core/Blueprints/DataAssets/BP_AbilityData"
 ability_data_bp_class = EditorAssetLibrary.load_blueprint_class(ability_data_bp_asset)
 
-move_data_bp_asset = "/Game/ThirdPerson/Blueprints/DataAssets/BP_MoveData"
+move_data_bp_asset = "/Game/Core/Blueprints/DataAssets/BP_MoveData"
 move_data_bp_class = EditorAssetLibrary.load_blueprint_class(move_data_bp_asset)
 
-item_data_bp_asset = "/Game/ThirdPerson/Blueprints/DataAssets/BP_ItemData"
+item_data_bp_asset = "/Game/Core/Blueprints/DataAssets/BP_ItemData"
 item_data_bp_class = EditorAssetLibrary.load_blueprint_class(item_data_bp_asset)
 
-evolution_chain_bp_asset = "/Game/ThirdPerson/Blueprints/DataAssets/BP_EvolutionChain"
+evolution_chain_bp_asset = "/Game/Core/Blueprints/DataAssets/BP_EvolutionChain"
 evolution_chain_bp_class = EditorAssetLibrary.load_blueprint_class(evolution_chain_bp_asset)
 
-chain_link_bp_asset = "/Game/ThirdPerson/Blueprints/BP_ChainLink"
+chain_link_bp_asset = "/Game/Core/Blueprints/BP_ChainLink"
 chain_link_bp_class = EditorAssetLibrary.load_blueprint_class(chain_link_bp_asset)
 
 def map_string_to_move_learn_method(string) -> PokemonMoveLearnMethod:
@@ -482,20 +482,20 @@ class ParserPokemon():
 
         # pokemon_asset.set_editor_property("abilities", abilities)
 
-        # move_learns = Array(MoveLearnData)
-        # for move in pokemon.moves:
-        #     version_group_details = list(filter(lambda version: version.version_group.name == "scarlet-violet", move.version_group_details))
-        #     if len(version_group_details) == 0:
-        #         version_group_details = list(filter(lambda version: version.version_group.name == "ultra-sun-ultra-moon", move.version_group_details))
+        move_learns = Array(MoveLearnData)
+        for move in pokemon.moves:
+            version_group_details = list(filter(lambda version: version.version_group.name == "scarlet-violet", move.version_group_details))
+            if len(version_group_details) == 0:
+                version_group_details = list(filter(lambda version: version.version_group.name == "ultra-sun-ultra-moon", move.version_group_details))
 
-        #     for version in version_group_details:
-        #         move_learn_asset = MoveLearnData()
-        #         move_learn_asset.LevelLearnedAt = version.level_learned_at
-        #         move_learn_asset.MoveLearnMethod = PokemonMoveLearnMethod.cast(map_string_to_move_learn_method(version.move_learn_method.name))
-        #         move_learn_asset.Move = self.get_or_create_asset(move.move.id, move_folder_path, AssetType.Move)
-        #         move_learns.append(move_learn_asset)
+            for version in version_group_details:
+                move_learn_asset = MoveLearnData()
+                move_learn_asset.LevelLearnedAt = version.level_learned_at
+                move_learn_asset.MoveLearnMethod = PokemonMoveLearnMethod.cast(map_string_to_move_learn_method(version.move_learn_method.name))
+                move_learn_asset.Move = self.get_or_create_asset(move.move.id, move_folder_path, AssetType.Move)
+                move_learns.append(move_learn_asset)
 
-        # pokemon_asset.set_editor_property("moves", move_learns)
+        pokemon_asset.set_editor_property("moves", move_learns)
 
         # skeletal_mesh_path = f"/Game/Models/pm{entry:04}_00_00/pm{entry:04}_00_00.pm{entry:04}_00_00"
         # skeletal_mesh = load_asset(skeletal_mesh_path)
@@ -546,7 +546,7 @@ if __name__=="__main__":
     #     pr.enable()
         cache.set_cache(cache_path)
         parser = ParserPokemon()
-        parser.start_parsing(1, 501)
+        parser.start_parsing(208, 209)
         # for i in range (1, 550):
         #     parser.parse_evolution_chain(i, evolution_chain_folder_path)
         # for i in range (1, 500):

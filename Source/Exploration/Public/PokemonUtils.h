@@ -525,7 +525,10 @@ enum class EPokemonAnimations
     WildShot = 340,
     Attack1 = 400,
     Attack2 = 410,
-    RangeAttack1 = 450,
+    RangeAttack1 = 453, // Real id 450
+    RangeAttack1Start = 450,
+    RangeAttack1Loop = 451,
+    RangeAttack1End = 452,
     RangeAttack2Start = 460,
     RangeAttack2Loop = 461,
     RangeAttack2End = 462,
