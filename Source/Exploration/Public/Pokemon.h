@@ -289,7 +289,7 @@ public:
 	FPokemonAnimationsSoftPtr flyingAnimationsStruct;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pokemon")
-	EPokemonMoveType _currentMoveTypes;
+	EPokemonMoveType _defaultMoveType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Category = "Pokemon", Bitmask, BitmaskEnum = "/Script/Exploration.EPokemonMoveType"))
 	int32 _allowedMoveTypes;

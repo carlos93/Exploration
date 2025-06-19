@@ -85,7 +85,7 @@
     LOAD_ANIM(member, Eye, container)
 
 // Sets default values
-APokemon::APokemon() : _entry{0}, _crySound(nullptr), _speed{}, _isRunning{false}, _isSleeping{false}, _pokemonAnimations{}, _pokemonAnimationsSwim{}, _pokemonAnimationsFly{}, _currentMoveTypes{EPokemonMoveType::Walk}, _allowedMoveTypes{static_cast<int32>(EPokemonMoveType::Walk |EPokemonMoveType::Swim)}, _showDebug{false}, _areWalkingAnimationsLoaded{false}, _areSwimmingAnimationsLoaded{false}, _areFlyingAnimationsLoaded{false}
+APokemon::APokemon() : _entry{0}, _crySound(nullptr), _speed{}, _isRunning{false}, _isSleeping{false}, _pokemonAnimations{}, _pokemonAnimationsSwim{}, _pokemonAnimationsFly{}, _defaultMoveType{EPokemonMoveType::Walk}, _allowedMoveTypes{static_cast<int32>(EPokemonMoveType::Walk |EPokemonMoveType::Swim)}, _showDebug{false}, _areWalkingAnimationsLoaded{false}, _areSwimmingAnimationsLoaded{false}, _areFlyingAnimationsLoaded{false}
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -139,11 +139,11 @@ void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
     {
         if (CanSwim())
         {
-            _currentMoveTypes = EPokemonMoveType::Swim;
+            _defaultMoveType = EPokemonMoveType::Swim;
         }
         else if (CanFly())
         {
-            _currentMoveTypes = EPokemonMoveType::Fly;
+            _defaultMoveType = EPokemonMoveType::Fly;
         }
     }
 
