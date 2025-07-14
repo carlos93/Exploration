@@ -632,6 +632,7 @@ enum class EPokemonMoveAilment : uint8
     Silence = 24U,
     BadPoison,
     Fainted,
+    Flinch,
     TarShot = 42U,
     AllPrimary,
     AllSecondary,
