@@ -6,14 +6,31 @@
 
 EDayTime UDayNightSubsystem::GetCurrentTimeDay() const
 {
-    if (_dayDonePercentage > 0.2f && _dayDonePercentage < 0.8f)
+    EDayTime dayTime = EDayTime::Day;
+
+    int32 hour = FMath::TruncToInt(_dayDonePercentage * 24.0f);
+    if (hour < 6)
     {
-        return EDayTime::Day;
+        dayTime = EDayTime::Night;
+    }
+    else if (hour < 9)
+    {
+        dayTime = EDayTime::Dawn;
+    }
+    else if (hour < 18)
+    {
+        dayTime = EDayTime::Day;
+    }
+    else if (hour < 21)
+    {
+        dayTime = EDayTime::Dusk;
     }
     else
     {
-        return EDayTime::Night;
+        dayTime = EDayTime::Night;
     }
+
+    return dayTime;
 }
 
 void UDayNightSubsystem::Tick(float deltaTime)

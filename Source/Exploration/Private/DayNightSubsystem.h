@@ -10,7 +10,9 @@ UENUM(BlueprintType)
 enum class EDayTime : uint8
 {
 	Day = 0U,
-	Night = 1U
+	Night = 1U,
+	Dawn = 2U,
+	Dusk = 3U
 };
 
 UCLASS()
@@ -27,7 +29,7 @@ public:
 
 	void Tick(float deltaTime) override;
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category = "Day Night Subsystem")
 	EDayTime GetCurrentTimeDay() const;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
