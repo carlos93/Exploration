@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.5",
+	"EngineAssociation": "5.6",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -68,7 +68,7 @@
 		},
 		{
 			"Name": "StreamlineDLSSG",
-			"Enabled": false,
+			"Enabled": true,
 			"MarketplaceURL": "https://www.unrealengine.com/marketplace/en-US/product/nvidia-dlss"
 		},
 		{

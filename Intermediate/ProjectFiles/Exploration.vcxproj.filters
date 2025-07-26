@@ -13,6 +13,7 @@
     </None>
     <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\MAWI Online Documentation.url" />
     <None Include="..\..\README.md" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
@@ -32,6 +33,9 @@
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\UserEngine.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\Exploration">
       <UniqueIdentifier>{98EB1B2B-FE50-35E1-8542-26846B2E0A5B}</UniqueIdentifier>
     </Filter>
@@ -41,18 +45,18 @@
     <ClCompile Include="..\..\Source\Exploration\Exploration.cpp">
       <Filter>Source\Exploration</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Exploration\Exploration.h">
+    <ClInclude Include="..\..\Source\Exploration\Exploration.h">
       <Filter>Source\Exploration</Filter>
-    </ClCompile>
+    </ClInclude>
     <Filter Include="Source\Exploration\Private">
       <UniqueIdentifier>{A1B03691-03B4-3796-8BF8-B9429D5DF141}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Exploration\Private\DayNightSubsystem.cpp">
       <Filter>Source\Exploration\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Exploration\Private\DayNightSubsystem.h">
+    <ClInclude Include="..\..\Source\Exploration\Private\DayNightSubsystem.h">
       <Filter>Source\Exploration\Private</Filter>
-    </ClCompile>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Exploration\Private\FWaitUntilLatent.cpp">
       <Filter>Source\Exploration\Private</Filter>
     </ClCompile>
@@ -65,14 +69,14 @@
     <Filter Include="Source\Exploration\Public">
       <UniqueIdentifier>{7F32119D-2A75-3C5B-918C-97275F9F6E4E}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Exploration\Public\FWaitUntilLatent.h">
+    <ClInclude Include="..\..\Source\Exploration\Public\FWaitUntilLatent.h">
       <Filter>Source\Exploration\Public</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Exploration\Public\Pokemon.h">
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Exploration\Public\Pokemon.h">
       <Filter>Source\Exploration\Public</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Exploration\Public\PokemonUtils.h">
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Exploration\Public\PokemonUtils.h">
       <Filter>Source\Exploration\Public</Filter>
-    </ClCompile>
+    </ClInclude>
   </ItemGroup>
 </Project>
