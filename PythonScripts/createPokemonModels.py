@@ -4,7 +4,20 @@ from pathlib import Path
 import functools
 from multiprocessing import Pool
 import json
+from enum import IntEnum, unique
 
+@unique
+class ExportType(IntEnum):
+    ScarletViolet = 1
+    PLA = 2
+    PLZA = 3
+
+
+is_shiny = False
+export_colors = True
+colors = []
+export_type : ExportType = ExportType.PLZA
+directory_plZA = "D:\ROMS\Models\Pokemon Legends ZA Models"
 directory_pla = "D:\ROMS\Models\Pokemon LA Models"
 directory_sv = "D:\ROMS\Models\Pokémon SCVI Base + DLC Model Dump"
 output = "D:\ROMS\Models\output"
@@ -83,6 +96,7 @@ def parse_info(model, animations, output_path, item_name, colors):
             
         # export to GLFT
         bpy.ops.export_scene.gltf(filepath=f"{output_path}", export_unused_images=True, export_unused_textures=True, export_image_quality=100)
+        print(f"Exported to {output_path}")
 
     # remove old model and materials
     bpy.ops.wm.read_homefile()
@@ -159,22 +173,51 @@ def create_texture_colors_data(item_name, colors, shiny):
 
             colors.append(data)
 
+def get_directory(export_type: ExportType) -> str:
+    if export_type == ExportType.ScarletViolet:
+        return directory_sv
+    elif export_type == ExportType.PLA:
+        return directory_pla
+    elif export_type == ExportType.PLZA:
+        return directory_plZA
+    return ""
 
-is_pkmn_legends_arceus = True
-is_shiny = False
-export_colors = True
-colors = []
-pla_pokemons = [41, 42, 46, 47, 63, 64, 65, 66, 67, 68, 77, 78, 95, 108, 114, 122, 169, 175, 176, 208, 226]
+def get_output_colors(export_type: ExportType) -> str:
+    if export_type == ExportType.ScarletViolet:
+        return f"{output}_colors.json"
+    elif export_type == ExportType.PLA:
+        return f"{output}_colors_pla.json"
+    elif export_type == ExportType.PLZA:
+        return f"{output}_colors_plZA.json"
+    return ""
 
-for i in range(1, 252):
-    if export_colors and ((i == 128 and not is_pkmn_legends_arceus) or (is_pkmn_legends_arceus and i not in pla_pokemons)):
-        continue
+def is_valid_pokemon_to_export(id: int, export_type: ExportType) -> bool:
+    pla_pokemons = [41, 42, 46, 47, 63, 64, 65, 66, 67, 68, 77, 78, 95, 108, 114, 122, 169, 175, 176, 208, 226]
+    plza_pokemons = [13, 14, 15, 16, 17, 18, 95, 115, 120, 121, 127, 142, 208]
+    if export_type == ExportType.ScarletViolet:
+        return True
+    elif export_type == ExportType.PLA:
+        return id in pla_pokemons
+    elif export_type == ExportType.PLZA:
+        return id in plza_pokemons
+    return False
 
-    export_model(i, directory_pla if is_pkmn_legends_arceus else directory_sv, output)
+def main():
+    for i in range(1, 252):
+        # if export_colors and ((i == 128 and not is_pkmn_legends_arceus) or (is_pkmn_legends_arceus and i not in pla_pokemons)):
+        #     continue
+        if not is_valid_pokemon_to_export(i, export_type):
+            continue
 
-output_colors = f"{output}_colors.json" if not is_pkmn_legends_arceus else f"{output}_colors_pla.json"
-with open(output_colors, "w+", encoding="utf-8") as file:
-    json.dump(colors, file, indent=4)
-    file.close()
+        export_model(i, get_directory(export_type), output)
 
-print("...FINISHED...")
+    if export_colors == True:
+        output_colors = get_output_colors(export_type)
+        with open(output_colors, "w+", encoding="utf-8") as file:
+            json.dump(colors, file, indent=4)
+            print(f"Exported {output_colors}")
+            file.close()
+
+    print("...FINISHED...")
+
+main()

@@ -457,30 +457,30 @@ class ParserPokemon():
         
         pokemon_asset.set_editor_property("evolutionChain", self.get_asset_from_database(pokemon.id, AssetType.EvolutionChain))
 
-        # types = [PokemonType.NONE, PokemonType.NONE]
-        # for type in pokemon.types:
-        #     types[type.slot-1] = PokemonType.cast(type.type.id)
-        # pokemon_asset.set_editor_property("types", types)
+        types = [PokemonType.NONE, PokemonType.NONE]
+        for type in pokemon.types:
+            types[type.slot-1] = PokemonType.cast(type.type.id)
+        pokemon_asset.set_editor_property("types", types)
         
-        # stats = {}
-        # evs = {}
-        # for stat in range(6):
-        #     pokemon_stat_type = PokemonStatType.cast(stat+1)
-        #     stats.update({pokemon_stat_type: pokemon.stats[stat].base_stat})
-        #     evs.update({pokemon_stat_type: pokemon.stats[stat].effort})
+        stats = {}
+        evs = {}
+        for stat in range(6):
+            pokemon_stat_type = PokemonStatType.cast(stat+1)
+            stats.update({pokemon_stat_type: pokemon.stats[stat].base_stat})
+            evs.update({pokemon_stat_type: pokemon.stats[stat].effort})
 
-        # pokemon_asset.set_editor_property("stats", stats)
-        # pokemon_asset.set_editor_property("evs", evs)
+        pokemon_asset.set_editor_property("stats", stats)
+        pokemon_asset.set_editor_property("evs", evs)
 
-        # abilities = Array(AbilitySlotData)
-        # for ability in pokemon.abilities:
-        #     ability_slot_data = AbilitySlotData()
-        #     ability_slot_data.Ability = self.get_or_create_asset(ability.ability.id, ability_folder_path, AssetType.Ability)
-        #     ability_slot_data.IsHidden = ability.is_hidden
-        #     ability_slot_data.Slot = ability.slot
-        #     abilities.append(ability_slot_data)
+        abilities = Array(AbilitySlotData)
+        for ability in pokemon.abilities:
+            ability_slot_data = AbilitySlotData()
+            ability_slot_data.Ability = self.get_or_create_asset(ability.ability.id, ability_folder_path, AssetType.Ability)
+            ability_slot_data.IsHidden = ability.is_hidden
+            ability_slot_data.Slot = ability.slot
+            abilities.append(ability_slot_data)
 
-        # pokemon_asset.set_editor_property("abilities", abilities)
+        pokemon_asset.set_editor_property("abilities", abilities)
 
         move_learns = Array(MoveLearnData)
         for move in pokemon.moves:
@@ -546,7 +546,7 @@ if __name__=="__main__":
     #     pr.enable()
         cache.set_cache(cache_path)
         parser = ParserPokemon()
-        parser.start_parsing(226, 227)
+        parser.start_parsing(1, 151)
         # for i in range (1, 550):
         #     parser.parse_evolution_chain(i, evolution_chain_folder_path)
         # for i in range (1, 500):
