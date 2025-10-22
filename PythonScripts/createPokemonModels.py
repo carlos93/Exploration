@@ -11,12 +11,14 @@ class ExportType(IntEnum):
     ScarletViolet = 1
     PLA = 2
     PLZA = 3
+    SwSh = 4
 
 
 is_shiny = False
-export_colors = True
+export_colors = False
 colors = []
 export_type : ExportType = ExportType.PLZA
+directory_swsh = "D:\ROMS\Models\Pokemon SW SH"
 directory_plZA = "D:\ROMS\Models\Pokemon Legends ZA Models"
 directory_pla = "D:\ROMS\Models\Pokemon LA Models"
 directory_sv = "D:\ROMS\Models\Pokémon SCVI Base + DLC Model Dump"
@@ -25,48 +27,67 @@ output = "D:\ROMS\Models\output"
 def export_model(entry: int, input: str, output: str):
 
     fixed_entry = f"{entry:04}"
-    parent_directory = f"{input}\pm{fixed_entry}"
-
-    if not os.path.exists(parent_directory):
-        print(f"Path dont exist {parent_directory}")
-        return
 
     model: str = ""
     animations = []
 
-    for item_name in os.listdir(parent_directory):
+    if export_type == ExportType.SwSh:
+        parent_directory = f"{input}\pm{fixed_entry}_00"
 
-        folder_name = os.path.join(parent_directory, item_name)
-        print(item_name)
-        if not os.path.isdir(folder_name):
-            continue
-
-        model, animations = find_model_and_animations(folder_name, model, animations, item_name)
+        if not os.path.exists(parent_directory):
+            print(f"Path dont exist {parent_directory}")
+            return
+        
+        model, animations = find_model_and_animations(parent_directory, model, animations)
 
         suffix = "_rare" if is_shiny else ""
-        parse_info(model, animations, f"{output}/{item_name}{suffix}", item_name, colors)
+        parse_info(model, animations, f"{output}/{parent_directory}{suffix}", parent_directory, colors)
+    else:
+        parent_directory = f"{input}\pm{fixed_entry}"
+
+        if not os.path.exists(parent_directory):
+            print(f"Path dont exist {parent_directory}")
+            return
+        
+        for item_name in os.listdir(parent_directory):
+
+            folder_name = os.path.join(parent_directory, item_name)
+            print(item_name)
+            if not os.path.isdir(folder_name):
+                continue
+
+            model, animations = find_model_and_animations(folder_name, model, animations)
+
+            suffix = "_rare" if is_shiny else ""
+            parse_info(model, animations, f"{output}/{item_name}{suffix}", item_name, colors)
     
 
-def find_model_and_animations(folder_name, model, animations, item_name):
+def find_model_and_animations(folder_name, model, animations):
     # iterate over files in that directory
     for filename in os.listdir(folder_name):
         f = os.path.join(folder_name, filename)
         # checking if it is a file
         if os.path.isfile(f):
-            if f.endswith("trmdl"):
-                print(f"Model: {f}")
-                model = f
-            if f.endswith("tranm"):
+            if f.endswith("trmdl") or f.endswith("gfbmdl"):
+                if export_type == ExportType.SwSh and f.split(".")[0].endswith("_rare"):
+                    print(f"Skipping rare model: {f}")
+                else:
+                    print(f"Model: {f}")
+                    model = f
+            elif f.endswith("tranm") or f.endswith("gfbanm"):
                 print(f"Anim: {f}")
                 animations.append(f)
         elif os.path.isdir(f):
-            model, animations = find_model_and_animations(f, model, animations, item_name)
+            model, animations = find_model_and_animations(f, model, animations)
     
     return model, animations
 
 
 def parse_info(model, animations, output_path, item_name, colors):
-    bpy.ops.custom_import_scene.pokemonscarletviolet(filepath=model, rare=is_shiny)
+    if model.endswith(".gfbmdl"):
+        bpy.ops.import_scene.gfmdl(filepath=model)
+    else:
+        bpy.ops.import_scene.trmdl(filepath=model, rare=is_shiny)
 
     if export_colors:
         shiny = is_shiny
@@ -76,12 +97,14 @@ def parse_info(model, animations, output_path, item_name, colors):
         bpy.ops.wm.read_homefile()
         
         shiny = not is_shiny
-        bpy.ops.custom_import_scene.pokemonscarletviolet(filepath=model, rare=shiny)
+        bpy.ops.import_scene.trmdl(filepath=model, rare=is_shiny)
+        # bpy.ops.custom_import_scene.pokemonscarletviolet(filepath=model, rare=shiny)
 
         create_texture_colors_data(item_name, colors, shiny)
     else:
         for anim in animations:
-            bpy.ops.custom_import_anim.gfbanm(filepath=anim)
+            bpy.ops.import_scene.gfbanm(filepath=anim)
+            # bpy.ops.custom_import_anim.gfbanm(filepath=anim)
 
         actions = bpy.data.actions
         for action in actions:
@@ -180,6 +203,8 @@ def get_directory(export_type: ExportType) -> str:
         return directory_pla
     elif export_type == ExportType.PLZA:
         return directory_plZA
+    elif export_type == ExportType.SwSh:
+        return directory_swsh
     return ""
 
 def get_output_colors(export_type: ExportType) -> str:
@@ -189,21 +214,27 @@ def get_output_colors(export_type: ExportType) -> str:
         return f"{output}_colors_pla.json"
     elif export_type == ExportType.PLZA:
         return f"{output}_colors_plZA.json"
+    elif export_type == ExportType.SwSh:
+        return f"{output}_colors_swsh.json"
     return ""
 
 def is_valid_pokemon_to_export(id: int, export_type: ExportType) -> bool:
     pla_pokemons = [41, 42, 46, 47, 63, 64, 65, 66, 67, 68, 77, 78, 95, 108, 114, 122, 169, 175, 176, 208, 226]
     plza_pokemons = [13, 14, 15, 16, 17, 18, 95, 115, 120, 121, 127, 142, 208]
+    swsh_pokemons = [10]
     if export_type == ExportType.ScarletViolet:
         return True
     elif export_type == ExportType.PLA:
         return id in pla_pokemons
     elif export_type == ExportType.PLZA:
         return id in plza_pokemons
+    elif export_type == ExportType.SwSh:
+        return id in swsh_pokemons
+    
     return False
 
 def main():
-    for i in range(1, 252):
+    for i in range(1, 14):
         # if export_colors and ((i == 128 and not is_pkmn_legends_arceus) or (is_pkmn_legends_arceus and i not in pla_pokemons)):
         #     continue
         if not is_valid_pokemon_to_export(i, export_type):
@@ -211,7 +242,7 @@ def main():
 
         export_model(i, get_directory(export_type), output)
 
-    if export_colors == True:
+    if export_colors:
         output_colors = get_output_colors(export_type)
         with open(output_colors, "w+", encoding="utf-8") as file:
             json.dump(colors, file, indent=4)

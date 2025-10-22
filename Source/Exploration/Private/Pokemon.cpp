@@ -206,6 +206,14 @@ void APokemon::OnWalkingAnimationsLoaded()
     {
         _pokemonAnimations.BattleWait = _pokemonAnimations.DefaultWait;
     }
+    if (_pokemonAnimations.TurnLeft == nullptr)
+    {
+        _pokemonAnimations.TurnLeft = _pokemonAnimations.DefaultWait;
+    }
+    if (_pokemonAnimations.TurnRight == nullptr)
+    {
+        _pokemonAnimations.TurnRight = _pokemonAnimations.DefaultWait;
+    }
 
     if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
         OnInitialize();
@@ -221,6 +229,14 @@ void APokemon::OnSwimmingAnimationsLoaded()
     {
         _pokemonAnimationsSwim.BattleWait = _pokemonAnimationsSwim.DefaultWait;
     }
+    if (_pokemonAnimationsSwim.TurnLeft == nullptr)
+    {
+        _pokemonAnimationsSwim.TurnLeft = _pokemonAnimationsSwim.DefaultWait;
+    }
+    if (_pokemonAnimationsSwim.TurnRight == nullptr)
+    {
+        _pokemonAnimationsSwim.TurnRight = _pokemonAnimationsSwim.DefaultWait;
+    }
 
     if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
         OnInitialize();
@@ -235,6 +251,14 @@ void APokemon::OnFlyingAnimationsLoaded()
     if (_pokemonAnimationsFly.BattleWait == nullptr)
     {
         _pokemonAnimationsFly.BattleWait = _pokemonAnimationsFly.DefaultWait;
+    }
+    if (_pokemonAnimationsFly.TurnLeft == nullptr)
+    {
+        _pokemonAnimationsFly.TurnLeft = _pokemonAnimationsFly.DefaultWait;
+    }
+    if (_pokemonAnimationsFly.TurnRight == nullptr)
+    {
+        _pokemonAnimationsFly.TurnRight = _pokemonAnimationsFly.DefaultWait;
     }
 
     if (_areWalkingAnimationsLoaded && _areSwimmingAnimationsLoaded && _areFlyingAnimationsLoaded)
