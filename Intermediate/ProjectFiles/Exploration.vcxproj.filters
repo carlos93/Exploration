@@ -13,6 +13,7 @@
     </None>
     <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\Exploration.png" />
     <None Include="..\..\MAWI Online Documentation.url" />
     <None Include="..\..\README.md" />
     <Filter Include="Config">

@@ -15,9 +15,9 @@ class ExportType(IntEnum):
 
 
 is_shiny = False
-export_colors = False
+export_colors = True
 colors = []
-export_type : ExportType = ExportType.PLZA
+export_type : ExportType = ExportType.PLA
 directory_swsh = "D:\ROMS\Models\Pokemon SW SH"
 directory_plZA = "D:\ROMS\Models\Pokemon Legends ZA Models"
 directory_pla = "D:\ROMS\Models\Pokemon LA Models"
@@ -219,7 +219,7 @@ def get_output_colors(export_type: ExportType) -> str:
     return ""
 
 def is_valid_pokemon_to_export(id: int, export_type: ExportType) -> bool:
-    pla_pokemons = [41, 42, 46, 47, 63, 64, 65, 66, 67, 68, 77, 78, 95, 108, 114, 122, 169, 175, 176, 208, 226]
+    pla_pokemons = [41, 42, 46, 47, 63, 64, 65, 66, 67, 68, 77, 78, 95, 108, 114, 122, 169, 175, 176, 201, 208, 226]
     plza_pokemons = [13, 14, 15, 16, 17, 18, 95, 115, 120, 121, 127, 142, 208]
     swsh_pokemons = [10]
     if export_type == ExportType.ScarletViolet:
@@ -234,7 +234,7 @@ def is_valid_pokemon_to_export(id: int, export_type: ExportType) -> bool:
     return False
 
 def main():
-    for i in range(1, 14):
+    for i in range(1, 252):
         # if export_colors and ((i == 128 and not is_pkmn_legends_arceus) or (is_pkmn_legends_arceus and i not in pla_pokemons)):
         #     continue
         if not is_valid_pokemon_to_export(i, export_type):
