@@ -7,7 +7,7 @@ import cProfile
 from enum import Enum
 from pathlib import Path
 
-from unreal import AssetRegistryHelpers, AssetToolsHelpers, Object, DataAssetFactory, PrimaryDataAsset, Texture2D, Texture2DFactoryNew, EvolutionTrigger, EditorAssetLibrary, PokemonType, PokemonStatType, PokemonMoveAilment, PokemonMoveCategory, PokemonMoveLearnMethod, PokemonMoveDamageClass, PokemonMoveTarget, ItemCategory, ItemPocket, ItemAttribute, ItemFlingEffect, GrowthRateType, Array, load_object, get_default_object, uproperty, load_asset, StructBase, ustruct
+from unreal import AssetRegistryHelpers, AssetToolsHelpers, Object, DataAssetFactory, PrimaryDataAsset, Texture2D, Texture2DFactoryNew, PokemonRegionalFormType, EvolutionTrigger, EditorAssetLibrary, PokemonType, PokemonStatType, PokemonMoveAilment, PokemonMoveCategory, PokemonMoveLearnMethod, PokemonMoveDamageClass, PokemonMoveTarget, ItemCategory, ItemPocket, ItemAttribute, ItemFlingEffect, GrowthRateType, Array, load_object, get_default_object, uproperty, load_asset, StructBase, ustruct
 
 cache_path = r"C:\Users\Carlos\Documents\PythonScripts"
 pokemon_folder_path = "/Game/Database/Pokemons/"
@@ -33,6 +33,18 @@ evolution_chain_bp_class = EditorAssetLibrary.load_blueprint_class(evolution_cha
 
 chain_link_bp_asset = "/Game/Core/Blueprints/BP_ChainLink"
 chain_link_bp_class = EditorAssetLibrary.load_blueprint_class(chain_link_bp_asset)
+
+def map_regional_forms(string: str) -> PokemonRegionalFormType:
+    if "alola" in string:
+        return PokemonRegionalFormType.ALOLAN
+    elif "galar" in string:
+        return PokemonRegionalFormType.GALARIAN
+    elif "hisui" in string:
+        return PokemonRegionalFormType.HISUIAN
+    elif "paldea" in string:
+        return PokemonRegionalFormType.PALDEAN
+    else:
+        return PokemonRegionalFormType.NONE
 
 def map_string_to_move_learn_method(string) -> PokemonMoveLearnMethod:
     if string == "level-up":
@@ -125,11 +137,11 @@ class ParserPokemon():
         self.setup_database()
 
     def setup_database(self):
-        self.ability_assets = self.load_folder_assets(ability_folder_path)
-        self.pokemon_assets = self.load_folder_assets(pokemon_folder_path)
-        self.move_assets = self.load_folder_assets(move_folder_path)
-        self.item_assets = self.load_folder_assets(item_folder_path)
-        self.evolution_chain_assets = self.load_folder_assets(evolution_chain_folder_path)
+        self.ability_assets = self.load_folder_assets(ability_folder_path, AssetType.Ability)
+        self.pokemon_assets = self.load_folder_assets(pokemon_folder_path, AssetType.Pokemon)
+        self.move_assets = self.load_folder_assets(move_folder_path, AssetType.Move)
+        self.item_assets = self.load_folder_assets(item_folder_path, AssetType.Item)
+        self.evolution_chain_assets = self.load_folder_assets(evolution_chain_folder_path, AssetType.EvolutionChain)
 
     def get_asset_name_for_entry(self, entry: int, asset_type: AssetType) -> str:
         if asset_type == AssetType.Ability:
@@ -182,39 +194,35 @@ class ParserPokemon():
         if asset_type == AssetType.EvolutionChain:
             return evolution_chain_bp_class
     
-    def get_or_create_asset(self, entry: int, folder_path, asset_type: AssetType, loaded_obj = None):
-        if entry > 9999:
-            return None
-        
+    def get_or_create_asset(self, entry: int, folder_path, asset_type: AssetType):
         asset = self.get_asset_from_database(entry, asset_type)
         if asset == None:
             print(f"Asset {entry} not found, creating it.")
-            asset = self.create_asset(entry, folder_path, asset_type, loaded_obj)
+            asset = self.create_asset(entry, folder_path, asset_type)
         elif asset.get_editor_property("isValid") == False:
             print(f"Asset {entry} invalid, re-creating it.")
-            self.create_asset(entry, folder_path, asset_type, loaded_obj, asset)
+            asset = self.create_asset(entry, folder_path, asset_type, asset)
         else:
             print(f"Asset {entry} found, skipping it.")
         
         return asset
     
-    def create_asset(self, entry: int, folder_path: str, asset_type: AssetType, loaded_obj = None, reuse_asset: Object = None) -> Object:
+    def create_asset(self, entry: int, folder_path: str, asset_type: AssetType, reuse_asset: Object = None) -> Object:
         asset = Object
         if asset_type == AssetType.Move:
-            asset = self.parse_move(entry, folder_path, loaded_obj, reuse_asset)
+            asset = self.parse_move(entry, folder_path, reuse_asset)
         elif asset_type == AssetType.Pokemon:
-            asset = self.parse_pokemon(entry, folder_path, loaded_obj, reuse_asset)
+            asset = self.parse_pokemon(entry, folder_path, reuse_asset)
         elif asset_type == AssetType.Ability:
-            asset = self.parse_ability(entry, folder_path, loaded_obj, reuse_asset)
+            asset = self.parse_ability(entry, folder_path, reuse_asset)
         elif asset_type == AssetType.Item:
-            asset = self.parse_item(entry, folder_path, loaded_obj, reuse_asset)
+            asset = self.parse_item(entry, folder_path, reuse_asset)
         elif asset_type == AssetType.EvolutionChain:
-            asset = self.parse_evolution_chain(entry, folder_path, loaded_obj, reuse_asset)
+            asset = self.parse_evolution_chain(entry, folder_path, reuse_asset)
         return asset
     
-    def parse_evolution_chain(self, entry: int, folder_path: str, evolution_chain = None, reuse_asset = None):
-        if evolution_chain == None:
-            evolution_chain = pb.evolution_chain(entry, lazy_load=True)
+    def parse_evolution_chain(self, entry: int, folder_path: str, reuse_asset = None):
+        evolution_chain = pb.evolution_chain(entry, lazy_load=True)
 
         if evolution_chain == None:
             return
@@ -290,9 +298,8 @@ class ParserPokemon():
         return evolution_chain_asset
 
 
-    def parse_item(self, entry: int, folder_path: str, item = None, reuse_asset = None):
-        if item == None:
-            item = pb.item(entry, lazy_load=True)
+    def parse_item(self, entry: int, folder_path: str, reuse_asset = None):
+        item = pb.item(entry, lazy_load=True)
 
         if item.name == None:
             print(f"Item {entry} does not exits in api")
@@ -335,9 +342,8 @@ class ParserPokemon():
         return asset
 
     
-    def parse_ability(self, entry: int, folder_path: str, ability = None, reuse_asset = None):
-        if ability == None:
-            ability = pb.ability(entry, lazy_load=True)
+    def parse_ability(self, entry: int, folder_path: str, reuse_asset = None):
+        ability = pb.ability(entry, lazy_load=True)
         
         print(ability.name)
 
@@ -358,9 +364,8 @@ class ParserPokemon():
         return ability_asset
 
 
-    def parse_move(self, entry: int, folder_path: str, move_api = None, reuse_asset = None):
-        if move_api == None:
-            move_api = pb.move(entry, lazy_load=True)
+    def parse_move(self, entry: int, folder_path: str, reuse_asset = None):
+        move_api = pb.move(entry, lazy_load=True)
 
         print(move_api.name)
 
@@ -412,20 +417,24 @@ class ParserPokemon():
         return move_asset
         
 
-    def parse_pokemon(self, entry: int, folder_path: str, pokemon = None, reuse_asset = None):
-        if pokemon == None:
-            pokemon = pb.pokemon(entry, lazy_load=True)
-
+    def parse_pokemon(self, entry: int, folder_path: str, reuse_asset = None):
+        pokemon = pb.pokemon(entry, lazy_load=True)
+            
+        if pokemon.name == None:
+            print(f"Pokemon ID: {entry} not found. Skipping it...")
+            return
+        
         print(pokemon.name)
 
         if reuse_asset == None:
-            asset_name = f"{entry:04}_{pokemon.name}"
+            asset_name = f"{pokemon.species.id:04}_{pokemon.name}"
             pokemon_asset = AssetToolsHelpers.get_asset_tools().create_asset(asset_name, folder_path, self.get_bp_class(AssetType.Pokemon), factory=DataAssetFactory())
             self.add_asset_to_database(entry, pokemon_asset, AssetType.Pokemon)
         else:
             pokemon_asset = reuse_asset
 
-        pokemon_asset.set_editor_property("id", pokemon.id)
+        pokemon_asset.set_editor_property("internalId", entry)
+        pokemon_asset.set_editor_property("id", pokemon.species.id)
         pokemon_asset.set_editor_property("name", pokemon.name)
         pokemon_asset.set_editor_property("height", pokemon.height)
         pokemon_asset.set_editor_property("weight", pokemon.weight)
@@ -437,6 +446,19 @@ class ParserPokemon():
         pokemon_asset.set_editor_property("isLegendary", pokemon.species.is_legendary)
         pokemon_asset.set_editor_property("isMythical", pokemon.species.is_mythical)
         pokemon_asset.set_editor_property("growthRate", GrowthRateType.cast(pokemon.species.growth_rate.id))
+
+        if len(pokemon.forms) != 0:
+            form = pokemon.forms[0]
+
+            form_id = 10 + int(form.form_order) if form.form_name != "" else 0
+            form_regional = map_regional_forms(form.form_name)
+            if form_regional != PokemonRegionalFormType.NONE:
+                form_id = form.form_order - 1
+
+            pokemon_asset.set_editor_property("isDefaultForm",  form.is_default)
+            pokemon_asset.set_editor_property("form",  form_id)
+            pokemon_asset.set_editor_property("regionalForm",  form_regional)
+            pokemon_asset.set_editor_property("isMega", form.is_mega)
 
         pokedex_descriptions = list(filter(lambda flavor_text_entries: flavor_text_entries["version"]["name"] == "scarlet-violet" and flavor_text_entries["language"]["name"] == "en", pokemon.species.flavor_text_entries))
         if len(pokedex_descriptions) == 0:
@@ -450,7 +472,8 @@ class ParserPokemon():
         if len(pokedex_descriptions) == 0:
             pokedex_descriptions = list(filter(lambda flavor_text_entries: flavor_text_entries["version"]["name"] == "white-2" and flavor_text_entries["language"]["name"] == "en", pokemon.species.flavor_text_entries))
 
-        pokemon_asset.set_editor_property("pokedexDescription", pokedex_descriptions[0]["flavor_text"])
+        if len(pokedex_descriptions) != 0:
+            pokemon_asset.set_editor_property("pokedexDescription", pokedex_descriptions[0]["flavor_text"])
         
         pokemon_genera = list(filter(lambda genera: genera["language"]["name"] == "en", pokemon.species.genera))
         pokemon_asset.set_editor_property("genera", pokemon_genera[0]["genus"])
@@ -505,7 +528,7 @@ class ParserPokemon():
         return pokemon_asset
 
 
-    def load_folder_assets(self, folder_path):
+    def load_folder_assets(self, folder_path, asset_type: AssetType):
         loaded_assets = {}
         assets = AssetRegistryHelpers.get_asset_registry().get_assets_by_path(folder_path)
         print(f"Found {len(assets)} assets in {folder_path}")
@@ -513,8 +536,10 @@ class ParserPokemon():
             full_name = asset.get_full_name()
             path = full_name.split(' ')[-1]
             loaded_asset = load_asset(path)
+            property_name = "id" if asset_type != AssetType.Pokemon else "internalId"
             loaded_asset.set_editor_property("id", int(loaded_asset.get_name().split("_")[0][-4:]))
-            loaded_assets.update({loaded_asset.get_editor_property("id"): loaded_asset})
+            entry = loaded_asset.get_editor_property(property_name)
+            loaded_assets.update({entry: loaded_asset})
 
         return loaded_assets
 
@@ -546,7 +571,7 @@ if __name__=="__main__":
     #     pr.enable()
         cache.set_cache(cache_path)
         parser = ParserPokemon()
-        parser.start_parsing(1, 252)
+        parser.start_parsing(10000, 10450)
         # for i in range (1, 550):
         #     parser.parse_evolution_chain(i, evolution_chain_folder_path)
         # for i in range (1, 500):

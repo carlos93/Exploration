@@ -17,7 +17,7 @@ class ExportType(IntEnum):
 is_shiny = False
 export_colors = True
 colors = []
-export_type : ExportType = ExportType.PLA
+export_type : ExportType = ExportType.ScarletViolet
 directory_swsh = "D:\ROMS\Models\Pokemon SW SH"
 directory_plZA = "D:\ROMS\Models\Pokemon Legends ZA Models"
 directory_pla = "D:\ROMS\Models\Pokemon LA Models"
@@ -97,8 +97,7 @@ def parse_info(model, animations, output_path, item_name, colors):
         bpy.ops.wm.read_homefile()
         
         shiny = not is_shiny
-        bpy.ops.import_scene.trmdl(filepath=model, rare=is_shiny)
-        # bpy.ops.custom_import_scene.pokemonscarletviolet(filepath=model, rare=shiny)
+        bpy.ops.import_scene.trmdl(filepath=model, rare=shiny)
 
         create_texture_colors_data(item_name, colors, shiny)
     else:

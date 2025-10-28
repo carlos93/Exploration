@@ -568,6 +568,16 @@ enum class EPokemonMoveType : uint8
 ENUM_CLASS_FLAGS(EPokemonMoveType);
 
 UENUM(BlueprintType)
+enum class EPokemonRegionalFormType : uint8
+{
+    None = 0U,
+    Alolan = 11U,
+    Galarian = 31U,
+    Hisuian = 41U,
+    Paldean = 51U,
+};
+
+UENUM(BlueprintType)
 enum class EPokemonType : uint8
 {
     None = 0U,
@@ -843,7 +853,7 @@ public:
 
     static TMap<EPokemonAnimations, FString> AnimationPathNames;
 
-    static FString GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier, const uint8 gender);
+    static FString GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier, const uint8 formOrGender, const uint8 regionalForm);
 
     UFUNCTION(BlueprintPure)
     static FString FirstLetterToUppercase(const FString name);

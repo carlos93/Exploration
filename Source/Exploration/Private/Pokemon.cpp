@@ -110,7 +110,7 @@ void APokemon::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
 
-void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
+void APokemon::Initialize(const int32 entry, uint8 formOrGender, uint8 regionalForm)
 {
     UPokemonUtils::InitDatabase();
 
@@ -119,18 +119,18 @@ void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
     _areFlyingAnimationsLoaded = false;
 
     FString entryFixed = FString(std::format("{:0>4}", entry).c_str());
-    FString genderStr = FString(std::format("{:0>2}", gender).c_str());
-    FString formStr = FString(std::format("{:0>2}", form).c_str());
+    FString formOrGenderStr = FString(std::format("{:0>2}", formOrGender).c_str());
+    FString regionalFormStr = FString(std::format("{:0>2}", regionalForm).c_str());
 
-    FString folderStr = "/Game/Models/pm" + entryFixed + "_" + genderStr + "_" + formStr + "/";
+    FString folderStr = "/Game/Models/pm" + entryFixed + "_" + formOrGenderStr + "_" + regionalFormStr + "/";
 
-    FString skeletalMeshPath = folderStr + "pm" + entryFixed + "_" + genderStr + "_" + formStr;
+    FString skeletalMeshPath = folderStr + "pm" + entryFixed + "_" + formOrGenderStr + "_" + regionalFormStr;
     USkeletalMesh* skeletalMesh = LoadObject<USkeletalMesh>(nullptr, *skeletalMeshPath);
     if (!skeletalMesh)
     {
         folderStr = "/Game/Models/pm" + entryFixed + "_00_00/";
         skeletalMeshPath = folderStr + "pm" + entryFixed + "_00_00";
-        gender = 0U;
+        formOrGender = 0U;
         skeletalMesh = LoadObject<USkeletalMesh>(nullptr, *skeletalMeshPath);
     }
     GetMesh()->SetSkeletalMesh(skeletalMesh);
@@ -149,7 +149,7 @@ void APokemon::Initialize(const int32 entry, uint8 gender, uint8 form)
 
     auto createPtr = [&](const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier)
     {
-        FSoftObjectPath animationPath = folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, pokemonAnimation, pokemonAnimTier, gender);
+        FSoftObjectPath animationPath = folderStr + UPokemonUtils::GetAnimationNameForPokemon(entry, pokemonAnimation, pokemonAnimTier, formOrGender, regionalForm);
         TSoftObjectPtr<UAnimSequence> animationPtr(animationPath);
         return animationPtr;
     };

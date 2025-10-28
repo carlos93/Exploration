@@ -63,7 +63,7 @@ void UPokemonUtils::InitDatabase()
     isDatabaseLoaded = true;
 }
 
-FString UPokemonUtils::GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier, const uint8 gender)
+FString UPokemonUtils::GetAnimationNameForPokemon(const int32 entry, const EPokemonAnimations pokemonAnimation, const EPokemonAnimTier pokemonAnimTier, const uint8 formOrGender, const uint8 regionalForm)
 {
     int32 pokemonAnimationId = static_cast<int32>(pokemonAnimation);
     if (pokemonAnimation == EPokemonAnimations::RangeAttack1)
@@ -74,8 +74,8 @@ FString UPokemonUtils::GetAnimationNameForPokemon(const int32 entry, const EPoke
     std::string entryStr = std::format("{:0>4}", entry);
     std::string animTier = std::format("{:0>1}", static_cast<uint8>(pokemonAnimTier));
     std::string animId = std::format("{:0>4}", pokemonAnimationId);
-    std::string formStr = std::format("{:0>2}", gender); // Form ID (alternative forms like Giratina)
-    std::string colorsStr = std::format("{:0>2}", "0"); // Color ID (only color change, like arceus)
+    std::string formOrGenderStr = std::format("{:0>2}", formOrGender); // gender or alternative forms like Giratina
+    std::string regionalFormStr = std::format("{:0>2}", regionalForm); // regional form
 
     FString animFStr = TEXT("");
     if (AnimationPathNames.Contains(pokemonAnimation))
@@ -84,7 +84,7 @@ FString UPokemonUtils::GetAnimationNameForPokemon(const int32 entry, const EPoke
     }
 
     std::string animStr = std::string(TCHAR_TO_UTF8(*animFStr));
-    std::string path = std::format("pm{}_{}_{}_{}{}_{}", entryStr, formStr, colorsStr, animTier, animId, animStr);
+    std::string path = std::format("pm{}_{}_{}_{}{}_{}", entryStr, formOrGenderStr, regionalFormStr, animTier, animId, animStr);
     std::string path2 = path + "." + path;
     return FString(path2.c_str());
 }
