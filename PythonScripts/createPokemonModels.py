@@ -15,9 +15,9 @@ class ExportType(IntEnum):
 
 
 is_shiny = False
-export_colors = True
+export_colors = False
 colors = []
-export_type : ExportType = ExportType.ScarletViolet
+export_type : ExportType = ExportType.PLA
 directory_swsh = "D:\ROMS\Models\Pokemon SW SH"
 directory_plZA = "D:\ROMS\Models\Pokemon Legends ZA Models"
 directory_pla = "D:\ROMS\Models\Pokemon LA Models"
@@ -50,6 +50,9 @@ def export_model(entry: int, input: str, output: str):
             return
         
         for item_name in os.listdir(parent_directory):
+            
+            model = ""
+            animations = []
 
             folder_name = os.path.join(parent_directory, item_name)
             print(item_name)
@@ -94,7 +97,8 @@ def parse_info(model, animations, output_path, item_name, colors):
         create_texture_colors_data(item_name, colors, shiny)
         
         # remove old model and materials
-        bpy.ops.wm.read_homefile()
+        bpy.ops.wm.read_homefile(use_empty=True)
+        bpy.ops.outliner.orphans_purge()
         
         shiny = not is_shiny
         bpy.ops.import_scene.trmdl(filepath=model, rare=shiny)
@@ -103,7 +107,6 @@ def parse_info(model, animations, output_path, item_name, colors):
     else:
         for anim in animations:
             bpy.ops.import_scene.gfbanm(filepath=anim)
-            # bpy.ops.custom_import_anim.gfbanm(filepath=anim)
 
         actions = bpy.data.actions
         for action in actions:
@@ -121,7 +124,8 @@ def parse_info(model, animations, output_path, item_name, colors):
         print(f"Exported to {output_path}")
 
     # remove old model and materials
-    bpy.ops.wm.read_homefile()
+    bpy.ops.wm.read_homefile(use_empty=True)
+    bpy.ops.outliner.orphans_purge()
 
 
 def create_texture_colors_data(item_name, colors, shiny):
@@ -218,7 +222,8 @@ def get_output_colors(export_type: ExportType) -> str:
     return ""
 
 def is_valid_pokemon_to_export(id: int, export_type: ExportType) -> bool:
-    pla_pokemons = [41, 42, 46, 47, 63, 64, 65, 66, 67, 68, 77, 78, 95, 108, 114, 122, 169, 175, 176, 201, 208, 226]
+    # pla_pokemons = [41, 42, 46, 47, 63, 64, 65, 66, 67, 68, 77, 78, 95, 108, 114, 122, 169, 175, 176, 201, 208, 226]
+    pla_pokemons = [201]
     plza_pokemons = [13, 14, 15, 16, 17, 18, 95, 115, 120, 121, 127, 142, 208]
     swsh_pokemons = [10]
     if export_type == ExportType.ScarletViolet:

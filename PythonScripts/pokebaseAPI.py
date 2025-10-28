@@ -433,7 +433,6 @@ class ParserPokemon():
         else:
             pokemon_asset = reuse_asset
 
-        pokemon_asset.set_editor_property("internalId", entry)
         pokemon_asset.set_editor_property("id", pokemon.species.id)
         pokemon_asset.set_editor_property("name", pokemon.name)
         pokemon_asset.set_editor_property("height", pokemon.height)
