@@ -114,6 +114,14 @@ void APokemon::Initialize(const int32 entry, uint8 formOrGender, uint8 regionalF
 {
     UPokemonUtils::InitDatabase();
 
+    _pokemonAnimations = FPokemonAnimations();
+    _pokemonAnimationsSwim = FPokemonAnimations();
+    _pokemonAnimationsFly = FPokemonAnimations();
+
+    walkingAnimationsStruct = FPokemonAnimationsSoftPtr();
+    swimmingAnimationsStruct = FPokemonAnimationsSoftPtr();
+    flyingAnimationsStruct = FPokemonAnimationsSoftPtr();
+
     _areWalkingAnimationsLoaded = false;
     _areSwimmingAnimationsLoaded = false;
     _areFlyingAnimationsLoaded = false;
@@ -135,6 +143,7 @@ void APokemon::Initialize(const int32 entry, uint8 formOrGender, uint8 regionalF
     }
     GetMesh()->SetSkeletalMesh(skeletalMesh);
 
+    _defaultMoveType = EPokemonMoveType::Walk;
     if (!CanWalk())
     {
         if (CanSwim())
