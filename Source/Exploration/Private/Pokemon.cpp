@@ -136,8 +136,8 @@ void APokemon::Initialize(const int32 entry, uint8 formOrGender, uint8 regionalF
     USkeletalMesh* skeletalMesh = LoadObject<USkeletalMesh>(nullptr, *skeletalMeshPath);
     if (!skeletalMesh)
     {
-        folderStr = "/Game/Models/pm" + entryFixed + "_00_00/";
-        skeletalMeshPath = folderStr + "pm" + entryFixed + "_00_00";
+        folderStr = "/Game/Models/pm" + entryFixed + "_00_" + regionalFormStr + "/";
+        skeletalMeshPath = folderStr + "pm" + entryFixed + "_00_" + regionalFormStr;
         formOrGender = 0U;
         skeletalMesh = LoadObject<USkeletalMesh>(nullptr, *skeletalMeshPath);
     }

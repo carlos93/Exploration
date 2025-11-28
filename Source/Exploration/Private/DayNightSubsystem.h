@@ -40,4 +40,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float _dayDonePercentage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool _isPaused;
 };

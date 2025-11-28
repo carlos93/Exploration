@@ -35,6 +35,11 @@ EDayTime UDayNightSubsystem::GetCurrentTimeDay() const
 
 void UDayNightSubsystem::Tick(float deltaTime)
 {
+    if (_isPaused)
+    {
+        return;
+    }
+
     _dayTimer += deltaTime;
 
     if (_dayTimer > _dayLength)
