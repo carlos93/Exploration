@@ -14,8 +14,6 @@ Saved
 *.xcodeproj
 *.xcworkspace
 Build
-Content/BlackAlder
-Content/EuropeanBeech
 BuildShipping/
 BuildShippingBeta/
 Intermediate/CachedAssetRegistry_0.bin
