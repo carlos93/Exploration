@@ -8,7 +8,7 @@ public class ExplorationTarget : TargetRules
 	public ExplorationTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V5;
+		DefaultBuildSettings = BuildSettingsVersion.V6;
 
 		ExtraModuleNames.AddRange( new string[] { "Exploration" } );
 	}
